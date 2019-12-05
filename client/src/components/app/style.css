@@ -1,0 +1,35 @@
+@font-face {}
+
+@font-face {}
+
+/* for me to resolve */
+
+/* @import url('https://fonts.googleapis.com/css?family=Lato|Roboto&display=swap'); */
+
+/* 
+ it can prevent stylesheets from being downloaded concurrently
+ both stylesheets are referenced in <link> elements in the main HTML page, both can be downloaded at the same time. 
+  the last rule defined wins ==> thats way you can override antd 
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Nexa';
+}
+
+html {
+  font-size: 1vw;
+}
+
+:root {}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+a:hover {
+  color: var(--main-color--dark);
+}
