@@ -11,8 +11,7 @@
     "start:client": "cd client && npm start",
     "start": "NODE_ENV=production node server/",
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "test": "NODE_ENV=test tape test/**/*.js tape test/*.js | tap-spec",
-    
+    "test": "NODE_ENV=test tape test/**/*.js tape test/*.js | tap-spec"
   },
   "repository": {
     "type": "git",
@@ -44,7 +43,6 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.1",
     "nodemon": "^1.19.4",
-    "pre-commit": "^1.2.2",
     "prettier": "1.18.2",
     "supertest": "^4.0.2",
     "tap-spec": "^5.0.0",
