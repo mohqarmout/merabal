@@ -1,8 +1,8 @@
 {
-  "name": "far-nearer",
+  "name": "16-Magic-touch",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": ".eslintrc.js",
   "directories": {
     "test": "test"
   },
@@ -12,19 +12,7 @@
     "start": "NODE_ENV=production node server/",
     "heroku-postbuild": "cd client && npm install && npm run build",
     "test": "NODE_ENV=test tape test/**/*.js tape test/*.js | tap-spec",
-    
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GSG-G7/far-nearer.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/GSG-G7/far-nearer/issues"
-  },
-  "homepage": "https://github.com/GSG-G7/far-nearer#readme",
   "dependencies": {
     "airtable": "^0.7.2",
     "camelcase-keys": "^6.1.0",
@@ -50,9 +38,15 @@
     "tap-spec": "^5.0.0",
     "tape": "^4.11.0"
   },
-  "pre-commit": [
-    "test",
-    "lint",
-    "lint:react"
-  ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mohammed-Q96/16-Magic-touch.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mohammed-Q96/16-Magic-touch/issues"
+  },
+  "homepage": "https://github.com/Mohammed-Q96/16-Magic-touch#readme"
 }
