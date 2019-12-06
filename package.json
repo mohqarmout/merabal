@@ -1,0 +1,56 @@
+{
+  "name": "far-nearer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon server/",
+    "start:client": "cd client && npm start",
+    "start": "NODE_ENV=production node server/",
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "test": "NODE_ENV=test tape test/**/*.js tape test/*.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSG-G7/far-nearer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GSG-G7/far-nearer/issues"
+  },
+  "homepage": "https://github.com/GSG-G7/far-nearer#readme",
+  "dependencies": {
+    "airtable": "^0.7.2",
+    "camelcase-keys": "^6.1.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.9.1",
+    "yup": "^0.27.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "nodemon": "^1.19.4",
+    "prettier": "1.18.2",
+    "supertest": "^4.0.2",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.11.0"
+  },
+  "pre-commit": [
+    "test",
+    "lint",
+    "lint:react"
+  ]
+}
