@@ -2,7 +2,8 @@ const { addMail, getEmails } = require('../../models/queries/mailList');
 const { emailValidation } = require('../../validation/');
 
 exports.mailList = async (req, res, next) => {
-  const { email } = req.body;
+  const { email } = req.query;
+
   try {
     await emailValidation.validate({ email });
     const allEmails = await getEmails();
