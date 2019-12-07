@@ -1,0 +1,67 @@
+.report {
+  background-color: rgba(30, 71, 102, 0.05);
+  padding: 4rem 0;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.leaflet-container {
+  height: 300px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header {
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--main-black);
+}
+
+.description {
+  font-family: var(--content-font);
+  font-size: 1.2rem;
+  color: var(--content-grey);
+  text-align: center;
+  padding: 1rem 3rem;
+}
+
+.report-img-div {
+  flex-basis: 40%;
+}
+
+.form--container {
+  min-height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-img {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 600px) {
+  .form--container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .title {
+    font-weight: bold;
+    font-size: 4rem;
+    margin-top: 1.5rem;
+  }
+  .description {
+    font-size: 3rem;
+  }
+}

@@ -1,11 +1,7 @@
 const yup = require('yup');
 
 module.exports = yup.object({
-  firstname: yup
-    .string()
-    .trim()
-    .required(),
-  lastName: yup
+  victimName: yup
     .string()
     .trim()
     .required(),
@@ -32,4 +28,16 @@ module.exports = yup.object({
   problem: yup.string().required(),
   approved: yup.bool().default(false),
   extraInfo: yup.string().default('N/A'),
+  idNumber: yup
+    .number()
+    .required()
+    .test(
+      'len',
+      'Must be exactly 10 characters for ID to be correct',
+      val => val.toString().length === 10,
+    ),
+  ideaAboutScammer: yup
+    .mixed()
+    .oneOf(['Yeyes and I am suer', 'maybe, I might know', 'N/A'])
+    .required(),
 });

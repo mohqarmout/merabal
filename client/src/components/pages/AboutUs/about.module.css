@@ -1,0 +1,30 @@
+.heading {
+  font-family: var(--header-font);
+  font-size: 3rem;
+  font-weight: 700;
+  margin-top: 3rem;
+
+}
+
+.content {
+  font-family: var(--content-font);
+  padding-bottom: 3rem;
+}
+
+.description {
+  line-height: 2rem;
+  font-size: 1.2rem;
+
+}
+
+@media (max-width: 600px) {
+  .heading {
+    font-size: 6rem;
+    margin-top: 6rem;
+  }
+
+  .description {
+    line-height: 7rem;
+    font-size: 3.3rem;
+  }
+}

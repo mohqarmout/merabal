@@ -8,6 +8,7 @@
   src: url(../../assets/Fonts/NexaBold.otf);
 }
 
+
 * {
   padding: 0;
   margin: 0;
@@ -40,11 +41,16 @@ html {
   border-color: var(--main-color--light);
 }
 
-.ant-btn:not([disabled]):hover, .ant-btn:not([disabled]):active, .ant-btn:not([disabled]):visited, .ant-btn-primary:focus {
+.ant-btn:not([disabled]):hover,
+.ant-btn:not([disabled]):active,
+.ant-btn:not([disabled]):visited,
+.ant-btn-primary:focus {
   background-color: var(--main-color--light);
   border-color: var(--main-color--light);
   box-shadow: 0.1rem 0.1rem var(--main-black--hover);
 }
+
+
 
 .ant-form-inline .ant-form-item-with-help {
   margin: 0;
@@ -66,7 +72,7 @@ a:hover {
   color: var(--main-color--dark);
 }
 
-.error-controller~.footer-controller {
+.error-controller ~ .footer-controller {
   display: none;
 }
 
@@ -75,10 +81,15 @@ a:hover {
     font-size: 1.4rem;
     font-weight: 700;
   }
+
   .ant-steps-horizontal.ant-steps-label-horizontal {
     display: inline-flex;
   }
-  .ant-steps-horizontal.ant-steps-label-horizontal>.ant-steps-item>.ant-steps-item-container>.ant-steps-item-tail::after {
+
+  .ant-steps-horizontal.ant-steps-label-horizontal
+    > .ant-steps-item
+    > .ant-steps-item-container
+    > .ant-steps-item-tail::after {
     position: absolute;
     top: 16px;
     left: 20px;
