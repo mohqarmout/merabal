@@ -1,7 +1,10 @@
-const router = require("express").Router();
+const router = require('express').Router();
+const { getCase } = require('./getCase');
+const { enterVictim } = require('./postCase');
+const { mailList } = require('./mailList');
 
-router.all("*", (req, res) => {
-    res.send('Hellow from server')
-});
+router.post('/enter-victim', enterVictim);
+router.get('/get-victim', getCase);
+router.get('/mail-list', mailList);
 
 module.exports = router;

@@ -11,7 +11,10 @@
     "start:client": "cd client && npm start",
     "start": "NODE_ENV=production node server/",
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "test": "NODE_ENV=test tape test/**/*.js tape test/*.js | tap-spec"
+    "test": "NODE_ENV=test tape test/**/*.js tape test/*.js | tap-spec",
+    "lint": "eslint server/",
+    "lint-fix": "eslint server/ --fix",
+    "lint:react": "cd client && npm run lint"
   },
   "repository": {
     "type": "git",
@@ -31,6 +34,7 @@
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-fileupload": "^1.1.6-alpha.6",
     "helmet": "^3.21.2",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.9.1",
@@ -47,10 +51,5 @@
     "supertest": "^4.0.2",
     "tap-spec": "^5.0.0",
     "tape": "^4.11.0"
-  },
-  "pre-commit": [
-    "test",
-    "lint",
-    "lint:react"
-  ]
+  }
 }
