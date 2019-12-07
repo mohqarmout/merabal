@@ -21,7 +21,6 @@ class FirstStep extends React.Component {
     validateFields((err, values) => {
       const val = { ...values };
       if (!err) {
-        if (!val.isOwnerLocal) val.isOwnerLocal = 'N/A';
         submittedValues(val);
         handleNext();
       }
@@ -30,7 +29,7 @@ class FirstStep extends React.Component {
 
   render() {
     const {
-      stepOneValues: { victimName, idNumber, ideaAboutScammer, extraInfo },
+      stepOneValues: { victimName, age, address, phoneNumber },
       form: { getFieldDecorator }
     } = this.props;
 
@@ -51,53 +50,40 @@ class FirstStep extends React.Component {
           )}
         </FormAnt.Item>
 
-        <FormAnt.Item label='ID Number'>
-          {getFieldDecorator('idNumber', {
+        <FormAnt.Item label='Your Age'>
+          {getFieldDecorator('age', {
             rules: [
               {
                 required: true,
-                message: 'Please Enter a correct ID '
+                message: 'Please Enter at your age pleas'
               }
             ],
-            initialValue: idNumber
-          })(<Input placeholder='Please Enter your ID' />)}
-        </FormAnt.Item>
-
-        <FormAnt.Item label='Do have an idea about the scammer' hasFeedback>
-          {getFieldDecorator('ideaAboutScammer', {
-            rules: [{ required: true, message: 'Please select the an Item' }],
-            initialValue: ideaAboutScammer
-          })(
-            <Select placeholder='What was the building used for'>
-              <Option value='yes and I am suer'>yes and I am suer</Option>
-              <Option value='maybe, I might know'>maybe, I might know</Option>
-              <Option value='N/A'>I don&apos;t know</Option>
-            </Select>
-          )}
+            initialValue: age
+          })(<Input placeholder='Please Enter at your age' />)}
         </FormAnt.Item>
 
         <FormAnt.Item
-          className={styles.item}
           label={
             <span>
-              Additional information might help
+              Would provide us your address
               <span style={{ color: '#888' }}> (Optional)</span>
             </span>
           }
         >
-          {getFieldDecorator('extraInfo', {
+          {getFieldDecorator('address', {
+            initialValue: address
+          })(<Input placeholder='It will be helpful to send you our staff' />)}
+        </FormAnt.Item>
+
+        <FormAnt.Item className={styles.item} label='Enter your phone number'>
+          {getFieldDecorator('phoneNumber', {
             rules: [
               {
-                required: false
+                required: true
               }
             ],
-            initialValue: extraInfo || undefined
-          })(
-            <TextArea
-              rows={3}
-              placeholder='extra information you think it will be helpful'
-            />
-          )}
+            initialValue: phoneNumber
+          })(<Input placeholder='At least ten digits' />)}
         </FormAnt.Item>
 
         <FormAnt.Item className='next'>

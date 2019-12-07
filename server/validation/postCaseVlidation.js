@@ -1,11 +1,11 @@
 const yup = require('yup');
 
 module.exports = yup.object({
-  victimName: yup
+  victimName: yup // 1
     .string()
     .trim()
     .required(),
-  email: yup
+  email: yup // 1
     .string()
     .email()
     .required(),
@@ -36,7 +36,7 @@ module.exports = yup.object({
       'Must be exactly 10 characters for ID to be correct',
       val => val.toString().length === 10,
     ),
-  ideaAboutScammer: yup
+  ideaAboutScammer: yup // 1
     .mixed()
     .oneOf(['Yeyes and I am suer', 'maybe, I might know', 'N/A'])
     .required(),

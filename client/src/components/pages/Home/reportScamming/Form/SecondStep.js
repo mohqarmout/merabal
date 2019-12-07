@@ -1,29 +1,25 @@
 import React from 'react';
-import { Form as FormAnt, Button, Upload, Icon, Input, Select } from 'antd';
+import { Form as FormAnt, Button, Input, Select } from 'antd';
 
 import PropTypes from 'prop-types';
 
 import styles from './form.module.css';
+import { turquoise } from 'color-name';
 
 const { Option } = Select;
 
 const { TextArea } = Input;
-
-const years = [];
-for (let year = 2019; year >= 2000; year -= 1) {
-  years.push(year);
-}
 
 const SecondStep = props => {
   const {
     submittedValues,
     handleNext,
     handleBack,
-    stepTwoValues: { emptyPeriod, extraInfo, preferredUse, thumbnail },
-    form: { getFieldDecorator, validateFields, getFieldsValue },
+    stepTwoValues: { email, idNumber, problem, ideaAboutScammer },
+    form: { getFieldDecorator, validateFields, getFieldsValue }
   } = props;
 
-  // fire after submit ==> AKA next button
+  // fires after submit ==> AKA next button
   const validateInput = e => {
     e.preventDefault();
     validateFields((err, values) => {
@@ -41,118 +37,75 @@ const SecondStep = props => {
     handleBack();
   };
 
-  const normFile = e => {
-    if (Array.isArray(e)) {
-      return e;
-    }
-    return e && e.fileList;
-  };
-
   return (
-    <FormAnt onSubmit={validateInput} layout="vertical">
-      <FormAnt.Item
-        className={styles.item}
-        label={<span>Since when has it been empty?</span>}
-      >
-        {getFieldDecorator('emptyPeriod', {
+    <FormAnt onSubmit={validateInput} layout='vertical'>
+      <FormAnt.Item label='ID Number'>
+        {getFieldDecorator('idNumber', {
           rules: [
             {
               required: true,
-              message: 'Please specify how long it has been empty',
-            },
+              message: 'Please Enter a correct ID '
+            }
           ],
-          initialValue: emptyPeriod,
-        })(
-          <Select
-            showSearch
-            placeholder="Approximately. Feel free to take a guess."
-          >
-            {years.map(year => (
-              <Option value={`${year} `} key={year}>
-                {year}
-              </Option>
-            ))}
-          </Select>,
-        )}
+          initialValue: idNumber
+        })(<Input placeholder='Please Enter your ID' />)}
       </FormAnt.Item>
-      <FormAnt.Item
-        className={styles.item}
-        label={
-          <span>
-            Other information ?
-            <span style={{ color: '#888' }}> (Optional)</span>
-          </span>
-        }
-      >
-        {getFieldDecorator('extraInfo', {
-          rules: [{ required: false, message: 'Please add extra information' }],
-          initialValue: extraInfo,
-        })(
-          <TextArea
-            rows={3}
-            placeholder="E.g. Broken window on first floor, corner street unit, compulsory purchased at some point, previously tried to contact owner."
-          />,
-        )}
+
+      <FormAnt.Item label='Email'>
+        {getFieldDecorator('email', {
+          rules: [
+            {
+              required: true,
+              message: 'Please Enter a coorect Email',
+              type: 'email'
+            }
+          ],
+          initialValue: email
+        })(<Input placeholder='Please Enter your Email' />)}
       </FormAnt.Item>
-      <FormAnt.Item
-        className={styles.item}
-        label={
-          <span>
-            What would you like it to be used for?
-            <span style={{ color: '#888' }}> (Optional)</span>
-          </span>
-        }
-      >
-        {getFieldDecorator('preferredUse', {
-          rules: [{ required: false, message: 'Please add the prefered use' }],
-          initialValue: preferredUse,
+
+      <FormAnt.Item className={styles.item} label='problem statement'>
+        {getFieldDecorator('problem', {
+          rules: [
+            {
+              required: true,
+              message: 'Give us an idea how you got blackmailed'
+            }
+          ],
+          initialValue: problem
         })(
           <TextArea
             rows={3}
-            placeholder="E.g. health centre, meeting space, cafe."
-          />,
+            placeholder='tell us about your stuation to help you'
+          />
         )}
       </FormAnt.Item>
-      <FormAnt.Item
-        className={styles.item}
-        label={
-          <span>
-            Upload a picture of the building
-            <span style={{ color: '#888' }}> (Optional)</span>
-          </span>
-        }
-      >
-        {getFieldDecorator('thumbnail', {
-          valuePropName: 'fileList',
-          getValueFromEvent: normFile,
-          initialValue: thumbnail,
+      <FormAnt.Item label='Do have an idea about the scammer' hasFeedback>
+        {getFieldDecorator('ideaAboutScammer', {
+          rules: [{ required: true, message: 'Please select the an Item' }],
+          initialValue: ideaAboutScammer
         })(
-          <Upload
-            name="logo"
-            accept="image/*"
-            multiple={false}
-            customRequest={() => {}}
-            listType="picture"
-          >
-            <Button className={styles.white}>
-              <Icon type="upload" /> Picture
-            </Button>
-          </Upload>,
+          <Select placeholder='What was the building used for'>
+            <Option value='yes and I am suer'>yes and I am suer</Option>
+            <Option value='maybe, I might know'>maybe, I might know</Option>
+            <Option value='N/A'>I don&apos;t know</Option>
+          </Select>
         )}
       </FormAnt.Item>
+
       <FormAnt.Item>
         <Button
           className={`prevButton  ${styles.white} ${styles['ml-0']}`}
           onClick={storeValues}
-          size="large"
+          size='large'
         >
           Previous
         </Button>
         <Button
-          type="primary"
-          size="large"
+          type='primary'
+          size='large'
           onClick={validateInput}
-          className="nextButton"
+          className='nextButton'
         >
           Next
         </Button>
@@ -166,7 +119,7 @@ SecondStep.propTypes = {
   submittedValues: PropTypes.func.isRequired,
   handleNext: PropTypes.func.isRequired,
   handleBack: PropTypes.func.isRequired,
-  stepTwoValues: PropTypes.objectOf(PropTypes.any).isRequired,
+  stepTwoValues: PropTypes.objectOf(PropTypes.any).isRequired
 };
 
 const WrappedStep = FormAnt.create({ name: 'validate_other' })(SecondStep);
