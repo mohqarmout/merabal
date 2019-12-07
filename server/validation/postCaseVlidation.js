@@ -31,4 +31,5 @@ module.exports = yup.object({
     .required(),
   problem: yup.string().required(),
   approved: yup.bool().default(false),
+  extraInfo: yup.string().default('N/A'),
 });

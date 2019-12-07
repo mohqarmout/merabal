@@ -3,7 +3,6 @@ const { postCaseVlidation } = require('../../validation/index');
 
 exports.enterVictim = async (req, res, next) => {
   const { data } = req.body;
-  console.log(data);
   try {
     const newCase = await postCaseVlidation.validate(data, {
       abortEarly: false,
@@ -21,13 +20,13 @@ exports.enterVictim = async (req, res, next) => {
       await postCase(newCase);
       res.status(201).send({
         statusCode: 201,
-        message: 'Building was added successfully',
+        message: 'victum was added successfully',
         data: newCase,
       });
     }
   } catch (error) {
-    if (error.name === 'ValidationError')
+    if (error.name === 'ValidationError') {
       res.status(400).send({ statusCode: 400, error: error.errors });
-    else next(error);
+    } else next(error);
   }
 };

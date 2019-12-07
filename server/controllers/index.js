@@ -4,7 +4,7 @@ const { enterVictim } = require('./postCase');
 const { mailList } = require('./mailList');
 
 router.post('/enter-victim', enterVictim);
-router.get('/get-case', getCase);
+router.get('/get-victim', getCase);
 router.get('/mail-list', mailList);
 
 module.exports = router;

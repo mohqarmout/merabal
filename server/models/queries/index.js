@@ -1,4 +1,4 @@
-const { postCase } = require('./addCase');
+const { postCase } = require('./cases');
 const { addMail } = require('./mailList');
 
 module.exports = {

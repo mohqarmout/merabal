@@ -11,11 +11,12 @@ exports.postCase = ({
   age,
   problem,
   idNumber,
+  extraInfo,
 }) => {
   return base('victims').create([
     {
       fields: {
-        First_name: firstname,
+        first_name: firstname,
         last_name: lastName,
         email,
         phone_number: phoneNumber,
@@ -23,6 +24,7 @@ exports.postCase = ({
         age,
         problem,
         id_number: idNumber,
+        extra_info: extraInfo,
       },
     },
   ]);
