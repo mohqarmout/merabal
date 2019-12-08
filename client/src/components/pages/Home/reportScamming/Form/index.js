@@ -19,21 +19,21 @@ class Form extends Component {
       victimName: '',
       age: '',
       address: '',
-      phoneNumber: '',
+      phoneNumber: ''
     },
     stepTwoValues: {
       email: '',
       idNumber: '',
       problem: '',
-      ideaAboutScammer: '',
+      ideaAboutScammer: ''
     },
     stepThreeValues: {
       extraInfo: '',
       receiveNotifications: false,
-      shareData: false,
+      shareData: false
     },
     loading: false,
-    iconLoading: false,
+    iconLoading: false
   };
 
   // for the therd step
@@ -46,8 +46,8 @@ class Form extends Component {
     this.setState({
       stepOneValues: {
         ...stepOneValues,
-        ...values,
-      },
+        ...values
+      }
     });
   };
 
@@ -56,8 +56,8 @@ class Form extends Component {
     this.setState({
       stepTwoValues: {
         ...stepTwoValues,
-        ...values,
-      },
+        ...values
+      }
     });
   };
 
@@ -66,8 +66,8 @@ class Form extends Component {
     this.setState({
       stepThreeValues: {
         ...stepThreeValues,
-        ...values,
-      },
+        ...values
+      }
     });
   };
 
@@ -78,67 +78,57 @@ class Form extends Component {
       {
         stepThreeValues: {
           ...stepThreeValues,
-          ...values,
-        },
+          ...values
+        }
       },
-      () => this.sendData(),
+      () => this.sendData()
     );
   };
 
   // handle submit
   sendData = async () => {
     // antD
+    const { redirectToView } = this.props;
     const openNotificationWithIcon = (type, message) => {
       notification[type]({
         message,
-        duration: 3,
+        duration: 3
       });
     };
 
     const {
       stepOneValues,
-      stepTwoValues: { emptyPeriod, extraInfo, preferredUse, thumbnail },
-      stepThreeValues,
+      stepTwoValues,
+      stepThreeValues: { extraInfo }
     } = this.state;
-
-    const { longitude, latitude, redirectToView } = this.props;
 
     const formData = new FormData();
 
-    const building = {
+    const data = {
       ...stepOneValues,
-      longitude,
-      latitude,
-      emptyPeriod,
-      extraInfo,
-      preferredUse,
-      ...stepThreeValues,
+      ...stepTwoValues,
+      extraInfo
     };
 
-    Object.keys(building).forEach(key => {
-      if (typeof building[key] === 'string')
-        building[key] = building[key].trim();
-      if (building[key] === '') delete building[key];
+    Object.keys(data).forEach(key => {
+      if (typeof data[key] === 'string') data[key] = data[key].trim();
+      if (data[key] === '') delete data[key];
     });
 
-    formData.append('data', JSON.stringify(building));
-
-    // I think no need to check for thumbnail if you set the state to be [] ..for further Knowing about the type of the state
-    if (thumbnail && thumbnail[0])
-      formData.append('thumbnail', thumbnail[0].originFileObj);
+    formData.append('data', JSON.stringify(data));
 
     const config = { headers: { 'Content-Type': 'multipart/form-data' } };
 
     try {
       const { data } = await axios.post(
-        '/api/v1/report-building',
+        '/api/v1/enter-victim',
         formData,
-        config,
+        config
       );
       if (data.statusCode === 201) {
         openNotificationWithIcon(
           'success',
-          'Great !! You added the empty building successfully',
+          'Great !! You added the empty building successfully'
         );
 
         redirectToView();
@@ -151,7 +141,7 @@ class Form extends Component {
       this.setState({ loading: false });
       openNotificationWithIcon(
         'error',
-        'Something went wrong! Please try again',
+        'Something went wrong! Please try again'
       );
     }
   };
@@ -162,7 +152,7 @@ class Form extends Component {
       stepTwoValues,
       stepThreeValues,
       loading,
-      current,
+      current
     } = this.state;
 
     switch (current) {
@@ -222,7 +212,7 @@ class Form extends Component {
             <Step key={item} />
           ))}
         </Steps>
-        <div className="steps-content">{this.getStep()}</div>
+        <div className='steps-content'>{this.getStep()}</div>
       </div>
     );
   }
@@ -234,7 +224,7 @@ Form.propTypes = {
   onCityChange: PropTypes.func.isRequired,
   redirectToView: PropTypes.func.isRequired,
   longitude: PropTypes.number.isRequired,
-  latitude: PropTypes.number.isRequired,
+  latitude: PropTypes.number.isRequired
 };
 
 export default Form;

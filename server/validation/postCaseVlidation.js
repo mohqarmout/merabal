@@ -21,10 +21,7 @@ module.exports = yup.object({
     .number()
     .min(16)
     .required(),
-  address: yup
-    .string()
-    .trim()
-    .required(),
+  address: yup.string().default('N/A'),
   problem: yup.string().required(),
   approved: yup.bool().default(false),
   extraInfo: yup.string().default('N/A'),

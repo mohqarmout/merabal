@@ -4,8 +4,6 @@ import { Form as FormAnt, Button, Input, Select } from 'antd';
 import PropTypes from 'prop-types';
 
 import styles from './form.module.css';
-import { turquoise } from 'color-name';
-
 const { Option } = Select;
 
 const { TextArea } = Input;
@@ -48,7 +46,7 @@ const SecondStep = props => {
             }
           ],
           initialValue: idNumber
-        })(<Input placeholder='Please Enter your ID' />)}
+        })(<Input placeholder='Please Enter at least 10 digits' />)}
       </FormAnt.Item>
 
       <FormAnt.Item label='Email'>

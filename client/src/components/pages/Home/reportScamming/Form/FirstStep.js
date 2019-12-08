@@ -55,11 +55,11 @@ class FirstStep extends React.Component {
             rules: [
               {
                 required: true,
-                message: 'Please Enter at your age pleas'
+                message: 'age is a required filed'
               }
             ],
             initialValue: age
-          })(<Input placeholder='Please Enter at your age' />)}
+          })(<Input placeholder='Must be older than 16' />)}
         </FormAnt.Item>
 
         <FormAnt.Item
@@ -83,7 +83,7 @@ class FirstStep extends React.Component {
               }
             ],
             initialValue: phoneNumber
-          })(<Input placeholder='At least ten digits' />)}
+          })(<Input placeholder='At least ten digits pheo phone number' />)}
         </FormAnt.Item>
 
         <FormAnt.Item className='next'>
