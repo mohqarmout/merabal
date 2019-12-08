@@ -7,7 +7,7 @@ import './style.css';
 import { Footer } from 'components/utils';
 import About from 'components/pages/AboutUs';
 import Error from 'components/pages/Error';
-import viewBuildings from 'components/pages/ViewBuildings';
+import viewBuildings from 'components/pages/ViewVic';
 import Home from 'components/pages/Home';
 
 function App() {

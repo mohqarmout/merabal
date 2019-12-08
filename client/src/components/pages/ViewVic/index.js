@@ -9,7 +9,7 @@ import styles from './view.module.css';
 const TableInfo = lazy(() => import('./Table'));
 
 class viewBuildings extends Component {
-  state = { buildingInfo: [] };
+  state = { vicInfo: [] };
 
   async componentDidMount() {
     // const openNotificationWithIcon = (type, message) => {
@@ -21,11 +21,11 @@ class viewBuildings extends Component {
     try {
       const {
         data: { data }
-      } = await axios.get('/api/v1/empty-buildings');
-      if (data && data[0] && data[0].latitude && data[0].longitude)
+      } = await axios.get('/api/v1/get-victim');
+      if (data && data[0])
         // what if the data were empty, and there wasn't an error?  ==> ahmad instruction
-
-        this.setState({ buildingInfo: data });
+        console.log(data);
+      this.setState({ vicInfo: data });
     } catch (err) {
       // openNotificationWithIcon(
       //   'error',
@@ -39,21 +39,19 @@ class viewBuildings extends Component {
   }
 
   render() {
-    const { buildingInfo } = this.state;
+    const { vicInfo } = this.state;
     return (
       <>
         <Navbar />
         <div className='container' id='view'>
           <div className={styles.view}>
-            <h1 className={styles.heading}>View Buildings</h1>
+            <h1 className={styles.heading}>View Cases</h1>
             <p className={styles.content}>
-              These buildings have been reported as empty or at risk by the
-              community. Some may be in the process of verification.
-            </p>
+            Please pick a case you think have the ability  to solve</p>
           </div>
           <div className={styles.table}>
             <Suspense fallback={<Loading />}>
-              <TableInfo buildingInfo={buildingInfo} />
+              <TableInfo vicInfo={vicInfo} />
             </Suspense>
           </div>
         </div>
