@@ -1,0 +1,159 @@
+.navbar {
+  overflow: hidden;
+  z-index: 1001;
+  top: 0;
+  width: 100vw;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+  transition: top 0.6s;
+}
+
+.hidden {
+  top: -80px;
+}
+
+.light {
+  background: var(--main-white);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.image-container {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo {
+  width: 80%;
+  max-width: 156px;
+}
+
+.menu {
+  display: flex;
+  width: 40vw;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.list {
+  display: flex;
+  list-style: none;
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+.list--item {
+  overflow: hidden;
+}
+
+.list--link {
+  height: 80px;
+  padding: 1.5rem 2rem;
+  color: var(--main-black);
+  text-decoration: none;
+  border-top: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: var(--content-font);
+  font-weight: bold;
+}
+
+.active,
+.list--link:hover {
+  border-top: 2px solid var(--main-black);
+  color: var(--main-black);
+  transition: ease-in-out 0.4s;
+}
+
+.transparent {
+  color: var(--main-white);
+  background: transparent;
+}
+
+.transparent:hover {
+  border-top: 2px solid var(--main-white);
+  color: var(--main-white);
+}
+
+.transparent--active {
+  border-top: 2px solid var(--main-white);
+}
+
+.sticky {
+  position: sticky;
+  width: 100%;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu__icon {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .menu {
+    width: 50vw;
+  }
+
+  .list {
+    font-size: 2rem;
+    display: none;
+  }
+
+  .list--link {
+    padding: 0 1rem;
+  }
+
+  .container {
+    height: 50px;
+  }
+
+  .logo {
+    width: 70%;
+  }
+
+  .hidden {
+    top: -30px;
+  }
+
+  .menu__icon {
+    display: block;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .nav__list {
+    width: 10%;
+    margin-top: 3rem;
+  }
+
+  .hide__logo {
+    visibility: hidden;
+  }
+
+  .overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: all 0.3s linear;
+    z-index: 1001;
+  }
+}

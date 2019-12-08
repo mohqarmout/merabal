@@ -1,35 +1,22 @@
 const yup = require('yup');
 
 module.exports = yup.object({
-  firstname: yup
+  victimName: yup // 1
     .string()
     .trim()
     .required(),
-  lastName: yup
-    .string()
-    .trim()
-    .required(),
-  email: yup
+  email: yup // 1
     .string()
     .email()
     .required(),
-  phoneNumber: yup
-    .number()
-    .required()
-    .test(
-      'len',
-      'Must be exactly 10 characters',
-      val => val.toString().length === 10,
-    ),
-  age: yup
-    .number()
-    .min(16)
-    .required(),
-  address: yup
-    .string()
-    .trim()
-    .required(),
+  phoneNumber: yup.number().required(),
+  age: yup.number().required(),
+  address: yup.string().default('N/A'),
   problem: yup.string().required(),
   approved: yup.bool().default(false),
   extraInfo: yup.string().default('N/A'),
+  idNumber: yup.number().required(),
+  ideaAboutScammer: yup // 1
+    .mixed()
+    .required(),
 });

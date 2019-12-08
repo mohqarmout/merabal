@@ -1,0 +1,78 @@
+.error {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #efeaea;
+}
+
+.content {
+  width: 30%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.heading {
+  color: var(--main-color--light);
+  font-size: 1.7rem;
+  margin-bottom: 0.5rem;
+}
+
+.status {
+  color: var(--main-color--light);
+  font-size: 10rem;
+  margin-bottom: 0;
+}
+
+.btn {
+  height: 6vh;
+  background-color: var(--main-color--light);
+  border-color: var(--main-color--light);
+  margin-left: 0.4rem;
+}
+
+.btn:hover {
+  background-color: var(--main-color--light);
+}
+
+.img {
+  width: 30%;
+  height: 45vh;
+}
+
+@media (max-width: 600px) {
+  .error {
+    flex-direction: column-reverse;
+  }
+
+  .content {
+    height: 30vh;
+  }
+
+  .heading {
+    font-size: 4rem;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+  }
+
+  .status {
+    color: var(--main-color--light);
+    font-size: 18rem;
+    margin-bottom: 0;
+  }
+
+  .img {
+    width: 70%;
+    height: 25vh;
+  }
+
+  .ant-btn-primary {
+    height: 4vh;
+    background-color: var(--main-color--light);
+    border-color: var(--main-color--light);
+  }
+}

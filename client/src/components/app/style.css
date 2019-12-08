@@ -1,16 +1,13 @@
-@font-face {}
+@font-face {
+  font-family: 'Nexa';
+  src: url(../../assets/Fonts/NexaLight.otf);
+}
 
-@font-face {}
+@font-face {
+  font-family: 'Nexa bold';
+  src: url(../../assets/Fonts/NexaBold.otf);
+}
 
-/* for me to resolve */
-
-/* @import url('https://fonts.googleapis.com/css?family=Lato|Roboto&display=swap'); */
-
-/* 
- it can prevent stylesheets from being downloaded concurrently
- both stylesheets are referenced in <link> elements in the main HTML page, both can be downloaded at the same time. 
-  the last rule defined wins ==> thats way you can override antd 
-*/
 
 * {
   padding: 0;
@@ -23,13 +20,82 @@ html {
   font-size: 1vw;
 }
 
-:root {}
+:root {
+  --main-color--light: #1e4766;
+  --main-color--dark: #000f2e;
+  --main-white: #ffffff;
+  --main-black: #000000;
+  --main-black--hover: #555555;
+  --content-grey: #333333;
+  --header-font: 'Nexa bold';
+  --content-font: 'Nexa';
+}
 
 .container {
   width: 90%;
   margin: auto;
 }
 
+.ant-btn-primary {
+  background-color: var(--main-color--light);
+  border-color: var(--main-color--light);
+}
+
+.ant-btn:not([disabled]):hover,
+.ant-btn:not([disabled]):active,
+.ant-btn:not([disabled]):visited,
+.ant-btn-primary:focus {
+  background-color: var(--main-color--light);
+  border-color: var(--main-color--light);
+  box-shadow: 0.1rem 0.1rem var(--main-black--hover);
+}
+
+
+
+.ant-form-inline .ant-form-item-with-help {
+  margin: 0;
+}
+
+.next {
+  float: right;
+}
+
+.nextButton {
+  float: right;
+}
+
+.ant-form-item {
+  margin-bottom: 1rem !important;
+}
+
 a:hover {
   color: var(--main-color--dark);
+}
+
+.error-controller ~ .footer-controller {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .ant-table {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  .ant-steps-horizontal.ant-steps-label-horizontal {
+    display: inline-flex;
+  }
+
+  .ant-steps-horizontal.ant-steps-label-horizontal
+    > .ant-steps-item
+    > .ant-steps-item-container
+    > .ant-steps-item-tail::after {
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    display: flex;
+    width: 23vw;
+    height: 1px;
+    padding: 0;
+  }
 }

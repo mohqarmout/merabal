@@ -3,8 +3,7 @@ const camelcaseKeys = require('camelcase-keys');
 const base = require('../config');
 
 exports.postCase = ({
-  firstname,
-  lastName,
+  victimName,
   email,
   phoneNumber,
   address,
@@ -12,12 +11,13 @@ exports.postCase = ({
   problem,
   idNumber,
   extraInfo,
+  ideaAboutScammer,
 }) => {
   return base('victims').create([
     {
       fields: {
-        first_name: firstname,
-        last_name: lastName,
+        idea_about_scammer: ideaAboutScammer,
+        victim_name: victimName,
         email,
         phone_number: phoneNumber,
         address,
