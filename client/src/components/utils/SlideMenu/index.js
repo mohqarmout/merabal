@@ -42,7 +42,7 @@ const SlideMenu = ({ showHideMenu }) => (
           </Link>
         </li>
         <li className={styles.list__item}>
-          <Link to="/View-cases" className={styles.nav__link}>
+          <Link to="/get-victim" className={styles.nav__link}>
           View Cases
           </Link>
         </li>

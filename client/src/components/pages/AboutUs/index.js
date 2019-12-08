@@ -7,40 +7,35 @@ const About = () => {
   return (
     <>
       <Navbar />
-      <div className="container">
-        <h1 className={styles.heading} id="about">
+      <div className='container'>
+        <h1 className={styles.heading} id='about'>
           About Us
         </h1>
         <div className={styles.content}>
           <p className={styles.description}>
-            Since 2012, the number of empty buildings across England has been
-            steadily rising. Long-term vacant homes now account for £53.6
-            billion of property in England.
+            We are as a team have founded after a big search that figure of
+            women who had assuming is increasing , we asked our self how we make
+            our Technological techniques help these women.
+            
+            After talking with a lot of victims and women founders we got a
+            clear idea with a positive impact .
+          </p>
+         
+          <p>
+            We decided to make a website to work as a middle part between
+            victims and volunteers All the operation will start when one of the
+            victims put her problem in our problem form And put her information
+            such as (age ,phone ,problem….) .
           </p>
           <p>
-            Coastal towns and cities have suffered the biggest rise in long-term
-            empty homes. In many coastal towns, the number of empty homes has
-            doubled in 2018 alone, hitting 939 in Portsmouth, 726 in Hartlepool
-            and 518 in Eastbourne.
+            fter that her information will be putted in air table and then put
+            problems without her personal information to make her feel trust
+            with us . then we will send her information to the one who we think
+            that can help her .
           </p>
           <p>
-            There are now more than 216,000 long-term empty homes in England,
-            equivalent to 72 per cent of the government’s annual new homes
-            target. At the same time, there are more than a million families on
-            waiting lists for local authority housing and homelessness it at its
-            highest level for over a decade. While councils blame poor quality
-            housing and overseas landlords, there is no clear evidence about why
-            the number of empty homes in England is rising. Who Owns Your
-            Neighbourhood is an independent website built by the Community
-            Interest Company Far Nearer. We wanted to make it easier to report
-            empty and at risk buildings in your community.
-          </p>
-          <p>
-            So we made Who Owns Your Neighbourhood, a way to report, view and
-            investigate empty and at risk buildings. Once you have reported a
-            building, this information is made available to community groups who
-            might be interested in investigating the property or buying it for
-            the community.
+            our vision is to make women feel trust and secure finally we hope
+            our project can help solving this problem more and more
           </p>
         </div>
       </div>

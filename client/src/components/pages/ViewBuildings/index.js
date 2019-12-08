@@ -6,7 +6,6 @@ import { Navbar, Loading } from 'components/utils';
 
 import styles from './view.module.css';
 
-const MapComponent = lazy(() => import('./Map'));
 const TableInfo = lazy(() => import('./Table'));
 
 class viewBuildings extends Component {
@@ -21,7 +20,7 @@ class viewBuildings extends Component {
     // };
     try {
       const {
-        data: { data },
+        data: { data }
       } = await axios.get('/api/v1/empty-buildings');
       if (data && data[0] && data[0].latitude && data[0].longitude)
         // what if the data were empty, and there wasn't an error?  ==> ahmad instruction
@@ -34,7 +33,7 @@ class viewBuildings extends Component {
       // );
       notification.error({
         message: 'Something went wrong! Please try again',
-        duration: 2,
+        duration: 2
       });
     }
   }
@@ -44,7 +43,7 @@ class viewBuildings extends Component {
     return (
       <>
         <Navbar />
-        <div className="container" id="view">
+        <div className='container' id='view'>
           <div className={styles.view}>
             <h1 className={styles.heading}>View Buildings</h1>
             <p className={styles.content}>
@@ -52,9 +51,6 @@ class viewBuildings extends Component {
               community. Some may be in the process of verification.
             </p>
           </div>
-          <Suspense fallback={<Loading />}>
-            <MapComponent buildingInfo={buildingInfo} />
-          </Suspense>
           <div className={styles.table}>
             <Suspense fallback={<Loading />}>
               <TableInfo buildingInfo={buildingInfo} />

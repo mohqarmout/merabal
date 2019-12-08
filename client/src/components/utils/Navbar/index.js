@@ -175,7 +175,7 @@ class Navbar extends Component {
                             ? styles['transparent--active']
                             : styles.active
                         }
-                        to="/View-cases"
+                        to="/get-victim"
                       >
                       View Cases
                       </NavLink>
