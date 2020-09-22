@@ -12,25 +12,25 @@ class viewBuildings extends Component {
   state = { vicInfo: [] };
 
   async componentDidMount() {
-    // const openNotificationWithIcon = (type, message) => {
-    //   notification[type]({
-    //     message,
-    //     duration: 2,
-    //   });
-    // };
+    //? const openNotificationWithIcon = (type, message) => {
+    //?   notification[type]({
+    //?     message,
+    //?     duration: 2,
+    //?   });
+    //? };
     try {
       const {
         data: { data },
       } = await axios.get('/api/v1/get-victim');
       if (data && data[0])
-        // what if the data were empty, and there wasn't an error?  ==> ahmad instruction
+        //? what if the data were empty, and there wasn't an error?  ==> ahmad instruction
         console.log(data);
       this.setState({ vicInfo: data });
     } catch (err) {
-      // openNotificationWithIcon(
-      //   'error',
-      //   'Something went wrong! Please try again',
-      // );
+      //? openNotificationWithIcon(
+      //?   'error',
+      //?   'Something went wrong! Please try again',
+      //? );
       notification.error({
         message: 'Something went wrong! Please try again',
         duration: 2,

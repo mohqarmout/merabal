@@ -32,14 +32,14 @@ class Navbar extends Component {
   handleScroll = () => {
     const { initialStatus, prevScrollpos } = this.state;
     let { visible } = this.state;
-    const currentScrollPos = window.pageYOffset; // t returns the number of pixels the document is currently scrolled along the vertical axis
-    const windowHeight = document.documentElement.clientHeight; // the root height of pixel html ==> window height
+    const currentScrollPos = window.pageYOffset; //?? returns the number of pixels the document is currently scrolled along the vertical axis
+    const windowHeight = document.documentElement.clientHeight; //?? the root height of pixel html ==> window height
     const navbarHeight = 80;
-    // let visible = true;
+    //? let visible = true;
 
     if (initialStatus) {
       if (currentScrollPos > windowHeight * 0.7 - navbarHeight) {
-        visible = prevScrollpos > currentScrollPos; // to hide the nav on scroll up
+        visible = prevScrollpos > currentScrollPos; //?? to hide the nav on scroll up
         this.setState({ transparent: false });
       } else {
         this.setState({ transparent: true });
@@ -59,7 +59,7 @@ class Navbar extends Component {
   };
 
   getNavbarClass = () => {
-    //  return the nav class name
+    //? return the nav class name
     const { initialStatus, transparent, visible } = this.state;
     let className = styles.navbar;
     className += !transparent ? ` ${styles.light}` : '';
@@ -77,7 +77,7 @@ class Navbar extends Component {
     });
   };
 
-  getLogoClass = showLogo => (!showLogo ? ` ${styles.hide__logo}` : ''); // use it
+  getLogoClass = showLogo => (!showLogo ? ` ${styles.hide__logo}` : '');
 
   render() {
     const {
@@ -115,7 +115,7 @@ class Navbar extends Component {
               >
                 <svg
                   fill={transparent ? '#ffffff' : '#000000'}
-                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns="httpwww.w3.org/2000/svg"
                   viewBox="0 0 30 30"
                   width="30px"
                   height="30px"

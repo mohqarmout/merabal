@@ -17,7 +17,7 @@ const SecondStep = props => {
     form: { getFieldDecorator, validateFields, getFieldsValue },
   } = props;
 
-  // fires after submit ==> AKA next button
+  //? fires after submit ==> AKA next button
   const validateInput = e => {
     e.preventDefault();
     validateFields((err, values) => {
@@ -28,7 +28,7 @@ const SecondStep = props => {
       }
     });
   };
-  // for prev button
+  //? for prev button
   const storeValues = () => {
     const values = getFieldsValue();
     submittedValues(values);

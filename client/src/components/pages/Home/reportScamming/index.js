@@ -39,9 +39,9 @@ class ReportScamming extends Component {
 }
 
 ReportScamming.propTypes = {
-  city: PropTypes.string.isRequired, // for the map
-  markerCoordinates: PropTypes.objectOf(PropTypes.number).isRequired, // for the map
-  location: PropTypes.string.isRequired, // for the map
+  city: PropTypes.string.isRequired, //? for the map
+  markerCoordinates: PropTypes.objectOf(PropTypes.number).isRequired, //? for the map
+  location: PropTypes.string.isRequired, //? for the map
   onCityChange: PropTypes.func.isRequired,
   redirectToView: PropTypes.func.isRequired,
   handleLocationChange: PropTypes.func.isRequired,

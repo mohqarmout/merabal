@@ -36,7 +36,7 @@ class Form extends Component {
     iconLoading: false,
   };
 
-  // for the therd step
+  //? for the therd step
   enterLoading = () => {
     this.setState({ loading: true });
   };
@@ -71,7 +71,7 @@ class Form extends Component {
     });
   };
 
-  // ThirdStep
+  //? ThirdStep
   handleConfirm = values => {
     const { stepThreeValues } = this.state;
     this.setState(
@@ -85,9 +85,9 @@ class Form extends Component {
     );
   };
 
-  // handle submit
+  //? handle submit
   sendData = async () => {
-    // antD
+    //? antD
     const { redirectToView } = this.props;
     const openNotificationWithIcon = (type, message) => {
       notification[type]({
@@ -189,14 +189,14 @@ class Form extends Component {
     }
   };
 
-  // antd
+  //? antd
   next() {
     let { current } = { ...this.state };
     current += 1;
     this.setState({ current });
   }
 
-  // antd
+  //? antd
   prev() {
     let { current } = { ...this.state };
     current -= 1;
