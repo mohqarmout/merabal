@@ -7,15 +7,16 @@ import { Navbar, Loading } from '../../utils';
 const ReportScamming = lazy(() => import('./reportScamming'));
 
 class Home extends Component {
-  redirectToView = ({ history }) => {
-    history?.push('/get-victim');
+  redirectToView = () => {
+    const { history } = this.props;
+    if (history) history.push('/get-victim');
   };
 
   render() {
     return (
       <>
         <Navbar transparent />
-        <Header onCityChange={this.handleCityChange} />
+        <Header />
         <Suspense fallback={<Loading />}>
           <ReportScamming redirectToView={this.redirectToView} />
         </Suspense>
