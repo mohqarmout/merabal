@@ -1,8 +1,8 @@
-import React from "react";
-import { Form as FormAnt, Checkbox, Input, Button, notification } from "antd";
-import PropTypes from "prop-types";
+import React from 'react';
+import { Form as FormAnt, Checkbox, Input, Button, notification } from 'antd';
+import PropTypes from 'prop-types';
 
-import styles from "./form.module.css";
+import styles from './form.module.css';
 const { TextArea } = Input;
 const ThirdStep = props => {
   const {
@@ -12,7 +12,7 @@ const ThirdStep = props => {
     stepThreeValues: { extraInfo, shareData },
     form: { getFieldDecorator, validateFields, getFieldsValue },
     enterLoading,
-    loading
+    loading,
   } = props;
 
   const handleSubmit = e => {
@@ -20,7 +20,7 @@ const ThirdStep = props => {
     const openNotificationWithIcon = (type, message) => {
       notification[type]({
         message,
-        duration: 3
+        duration: 3,
       });
     };
 
@@ -28,8 +28,8 @@ const ThirdStep = props => {
       if (!err) {
         if (values.shareData === false)
           openNotificationWithIcon(
-            "info",
-            "Please agree to share this data to continue"
+            'info',
+            'Please agree to share this data to continue',
           );
         else {
           enterLoading();
@@ -53,47 +53,47 @@ const ThirdStep = props => {
           label={
             <span>
               Additional information might help
-              <span style={{ color: "#888" }}> (Optional)</span>
+              <span style={{ color: '#888' }}> (Optional)</span>
             </span>
           }
         >
-          {getFieldDecorator("extraInfo", {
+          {getFieldDecorator('extraInfo', {
             rules: [
               {
-                required: false
-              }
+                required: false,
+              },
             ],
-            initialValue: extraInfo || undefined
+            initialValue: extraInfo || undefined,
           })(
             <TextArea
               rows={3}
               placeholder="extra information you think it will be helpful"
-            />
+            />,
           )}
         </FormAnt.Item>
 
         <FormAnt.Item>
-          {getFieldDecorator("shareData", {
+          {getFieldDecorator('shareData', {
             rules: [
               {
                 required: true,
-                message: "You must agree to share your data with us"
-              }
+                message: 'You must agree to share your data with us',
+              },
             ],
             initialValue: shareData,
-            valuePropName: "checked"
+            valuePropName: 'checked',
           })(
             <Checkbox required>
               I consent to share Infroamtion with Magic touch team and their
               local community partners
-            </Checkbox>
+            </Checkbox>,
           )}
         </FormAnt.Item>
 
         <FormAnt.Item>
           <Button
             htmlType="submit"
-            className={`prevButton ${styles.white} ${styles["ml-0"]}`}
+            className={`prevButton ${styles.white} ${styles['ml-0']}`}
             onClick={storeValues}
             size="large"
           >
@@ -122,9 +122,9 @@ ThirdStep.propTypes = {
   handleConfirm: PropTypes.func.isRequired,
   enterLoading: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
-  stepThreeValues: PropTypes.objectOf(PropTypes.any).isRequired
+  stepThreeValues: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
-const WrappedStep = FormAnt.create({ name: "validate_other" })(ThirdStep);
+const WrappedStep = FormAnt.create({ name: 'validate_other' })(ThirdStep);
 
 export default WrappedStep;

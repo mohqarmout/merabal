@@ -1,14 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import logo from "assets/merabalv1.png";
-import styles from "./menu.module.css";
+import logo from 'assets/merabalv1.png';
+import styles from './menu.module.css';
 
 const SlideMenu = ({ showHideMenu }) => (
   <div className={styles.menu}>
     <nav className={styles.menu__nav}>
-      <div className={styles["image-container"]}>
+      <div className={styles['image-container']}>
         <Link to="/">
           <button
             type="button"
@@ -52,7 +52,7 @@ const SlideMenu = ({ showHideMenu }) => (
 );
 
 SlideMenu.propTypes = {
-  showHideMenu: PropTypes.func.isRequired
+  showHideMenu: PropTypes.func.isRequired,
 };
 
 export default SlideMenu;

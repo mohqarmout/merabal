@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { notification } from "antd";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { notification } from 'antd';
 
-import Form from "./Form";
-import styles from "./report.module.css";
+import Form from './Form';
+import styles from './report.module.css';
 
 class ReportScamming extends Component {
   render() {
@@ -22,10 +22,10 @@ class ReportScamming extends Component {
               </Link>
             </p>
           </header>
-          <div className={styles["form--container"]}>
-            <div className={styles["report-img-div"]}>
+          <div className={styles['form--container']}>
+            <div className={styles['report-img-div']}>
               <img
-                className={styles["form-img"]}
+                className={styles['form-img']}
                 alt="form-photo"
                 src="https://media.gettyimages.com/photos/all-women-should-take-part-we-are-all-part-of-this-picture-id1074842602?s=2048x2048"
               ></img>
@@ -46,7 +46,7 @@ ReportScamming.propTypes = {
   redirectToView: PropTypes.func.isRequired,
   handleLocationChange: PropTypes.func.isRequired,
   longitude: PropTypes.number.isRequired,
-  latitude: PropTypes.number.isRequired
+  latitude: PropTypes.number.isRequired,
 };
 
 export default ReportScamming;

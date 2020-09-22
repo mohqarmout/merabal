@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Menu, Dropdown, Button, Icon } from "antd";
-import { HashLink as Link } from "react-router-hash-link";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Menu, Dropdown, Button, Icon } from 'antd';
+import { HashLink as Link } from 'react-router-hash-link';
 
-import styles from "./header.module.css";
+import styles from './header.module.css';
 
 const Header = () => {
   return (
@@ -17,7 +17,7 @@ const Header = () => {
 };
 
 Header.propTypes = {
-  onCityChange: PropTypes.func.isRequired
+  onCityChange: PropTypes.func.isRequired,
 };
 
 export default Header;

@@ -1,12 +1,12 @@
-import React, { Component, lazy, Suspense } from "react";
-import axios from "axios";
-import { notification } from "antd";
+import React, { Component, lazy, Suspense } from 'react';
+import axios from 'axios';
+import { notification } from 'antd';
 
-import { Navbar, Loading } from "components/utils";
+import { Navbar, Loading } from 'components/utils';
 
-import styles from "./view.module.css";
+import styles from './view.module.css';
 
-const TableInfo = lazy(() => import("./Table"));
+const TableInfo = lazy(() => import('./Table'));
 
 class viewBuildings extends Component {
   state = { vicInfo: [] };
@@ -20,8 +20,8 @@ class viewBuildings extends Component {
     // };
     try {
       const {
-        data: { data }
-      } = await axios.get("/api/v1/get-victim");
+        data: { data },
+      } = await axios.get('/api/v1/get-victim');
       if (data && data[0])
         // what if the data were empty, and there wasn't an error?  ==> ahmad instruction
         console.log(data);
@@ -32,8 +32,8 @@ class viewBuildings extends Component {
       //   'Something went wrong! Please try again',
       // );
       notification.error({
-        message: "Something went wrong! Please try again",
-        duration: 2
+        message: 'Something went wrong! Please try again',
+        duration: 2,
       });
     }
   }

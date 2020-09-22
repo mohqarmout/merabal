@@ -1,14 +1,14 @@
-import React, { Component, lazy, Suspense } from "react";
-import PropTypes from "prop-types";
+import React, { Component, lazy, Suspense } from 'react';
+import PropTypes from 'prop-types';
 
-import Header from "./Header";
-import { Navbar, Loading } from "../../utils";
+import Header from './Header';
+import { Navbar, Loading } from '../../utils';
 
-const ReportScamming = lazy(() => import("./reportScamming"));
+const ReportScamming = lazy(() => import('./reportScamming'));
 
 class Home extends Component {
   redirectToView = ({ history }) => {
-    history?.push("/get-victim");
+    history?.push('/get-victim');
   };
 
   render() {
@@ -25,7 +25,7 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  history: PropTypes.objectOf(PropTypes.any).isRequired
+  history: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default Home;

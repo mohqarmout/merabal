@@ -1,39 +1,39 @@
-import React, { Component } from "react";
-import { Steps, notification } from "antd";
-import PropTypes from "prop-types";
-import axios from "axios";
+import React, { Component } from 'react';
+import { Steps, notification } from 'antd';
+import PropTypes from 'prop-types';
+import axios from 'axios';
 
-import FirstStep from "./FirstStep";
-import SecondStep from "./SecondStep";
-import ThirdStep from "./ThirdStep";
-import styles from "./form.module.css";
+import FirstStep from './FirstStep';
+import SecondStep from './SecondStep';
+import ThirdStep from './ThirdStep';
+import styles from './form.module.css';
 
 const { Step } = Steps;
 
-const steps = ["Empty Building", "Extra Information", "Personal Information"];
+const steps = ['Empty Building', 'Extra Information', 'Personal Information'];
 
 class Form extends Component {
   state = {
     current: 0,
     stepOneValues: {
-      victimName: "",
-      age: "",
-      address: "",
-      phoneNumber: ""
+      victimName: '',
+      age: '',
+      address: '',
+      phoneNumber: '',
     },
     stepTwoValues: {
-      email: "",
-      idNumber: "",
-      problem: "",
-      ideaAboutScammer: ""
+      email: '',
+      idNumber: '',
+      problem: '',
+      ideaAboutScammer: '',
     },
     stepThreeValues: {
-      extraInfo: "",
+      extraInfo: '',
       receiveNotifications: false,
-      shareData: false
+      shareData: false,
     },
     loading: false,
-    iconLoading: false
+    iconLoading: false,
   };
 
   // for the therd step
@@ -46,8 +46,8 @@ class Form extends Component {
     this.setState({
       stepOneValues: {
         ...stepOneValues,
-        ...values
-      }
+        ...values,
+      },
     });
   };
 
@@ -56,8 +56,8 @@ class Form extends Component {
     this.setState({
       stepTwoValues: {
         ...stepTwoValues,
-        ...values
-      }
+        ...values,
+      },
     });
   };
 
@@ -66,8 +66,8 @@ class Form extends Component {
     this.setState({
       stepThreeValues: {
         ...stepThreeValues,
-        ...values
-      }
+        ...values,
+      },
     });
   };
 
@@ -78,10 +78,10 @@ class Form extends Component {
       {
         stepThreeValues: {
           ...stepThreeValues,
-          ...values
-        }
+          ...values,
+        },
       },
-      () => this.sendData()
+      () => this.sendData(),
     );
   };
 
@@ -92,14 +92,14 @@ class Form extends Component {
     const openNotificationWithIcon = (type, message) => {
       notification[type]({
         message,
-        duration: 3
+        duration: 3,
       });
     };
 
     const {
       stepOneValues,
       stepTwoValues,
-      stepThreeValues: { extraInfo }
+      stepThreeValues: { extraInfo },
     } = this.state;
 
     const formData = new FormData();
@@ -107,41 +107,41 @@ class Form extends Component {
     const data = {
       ...stepOneValues,
       ...stepTwoValues,
-      extraInfo
+      extraInfo,
     };
 
     Object.keys(data).forEach(key => {
-      if (typeof data[key] === "string") data[key] = data[key].trim();
-      if (data[key] === "") delete data[key];
+      if (typeof data[key] === 'string') data[key] = data[key].trim();
+      if (data[key] === '') delete data[key];
     });
 
-    formData.append("data", JSON.stringify(data));
+    formData.append('data', JSON.stringify(data));
 
-    const config = { headers: { "Content-Type": "multipart/form-data" } };
+    const config = { headers: { 'Content-Type': 'multipart/form-data' } };
 
     try {
       const { data } = await axios.post(
-        "/api/v1/enter-victim",
+        '/api/v1/enter-victim',
         formData,
-        config
+        config,
       );
       if (data.statusCode === 201) {
         openNotificationWithIcon(
-          "success",
-          "Great !! You added the empty building successfully"
+          'success',
+          'Great !! You added the empty building successfully',
         );
 
         redirectToView();
       } else if (data.statusCode === 400) {
-        openNotificationWithIcon("error", data.error);
+        openNotificationWithIcon('error', data.error);
       } else if (data.statusCode === 409) {
-        openNotificationWithIcon("info", "The building is already exist");
+        openNotificationWithIcon('info', 'The building is already exist');
       }
     } catch (err) {
       this.setState({ loading: false });
       openNotificationWithIcon(
-        "error",
-        "Something went wrong! Please try again"
+        'error',
+        'Something went wrong! Please try again',
       );
     }
   };
@@ -152,7 +152,7 @@ class Form extends Component {
       stepTwoValues,
       stepThreeValues,
       loading,
-      current
+      current,
     } = this.state;
 
     switch (current) {
@@ -224,7 +224,7 @@ Form.propTypes = {
   onCityChange: PropTypes.func.isRequired,
   redirectToView: PropTypes.func.isRequired,
   longitude: PropTypes.number.isRequired,
-  latitude: PropTypes.number.isRequired
+  latitude: PropTypes.number.isRequired,
 };
 
 export default Form;

@@ -1,9 +1,9 @@
-import React from "react";
-import { Icon } from "antd";
+import React from 'react';
+import { Icon } from 'antd';
 
-import Subscribe from "./Subscribe";
+import Subscribe from './Subscribe';
 
-import styles from "./footer.module.css";
+import styles from './footer.module.css';
 
 const Footer = () => {
   return (
