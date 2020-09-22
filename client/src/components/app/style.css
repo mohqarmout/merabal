@@ -1,19 +1,18 @@
 @font-face {
-  font-family: 'Nexa';
+  font-family: "Nexa";
   src: url(../../assets/Fonts/NexaLight.otf);
 }
 
 @font-face {
-  font-family: 'Nexa bold';
+  font-family: "Nexa bold";
   src: url(../../assets/Fonts/NexaBold.otf);
 }
-
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Nexa';
+  font-family: "Nexa";
 }
 
 html {
@@ -27,8 +26,8 @@ html {
   --main-black: #000000;
   --main-black--hover: #555555;
   --content-grey: #333333;
-  --header-font: 'Nexa bold';
-  --content-font: 'Nexa';
+  --header-font: "Nexa bold";
+  --content-font: "Nexa";
 }
 
 .container {
@@ -49,8 +48,6 @@ html {
   border-color: var(--main-color--light);
   box-shadow: 0.1rem 0.1rem var(--main-black--hover);
 }
-
-
 
 .ant-form-inline .ant-form-item-with-help {
   margin: 0;

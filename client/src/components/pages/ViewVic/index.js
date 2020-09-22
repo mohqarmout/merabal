@@ -1,12 +1,12 @@
-import React, { Component, lazy, Suspense } from 'react';
-import axios from 'axios';
-import { notification } from 'antd';
+import React, { Component, lazy, Suspense } from "react";
+import axios from "axios";
+import { notification } from "antd";
 
-import { Navbar, Loading } from 'components/utils';
+import { Navbar, Loading } from "components/utils";
 
-import styles from './view.module.css';
+import styles from "./view.module.css";
 
-const TableInfo = lazy(() => import('./Table'));
+const TableInfo = lazy(() => import("./Table"));
 
 class viewBuildings extends Component {
   state = { vicInfo: [] };
@@ -21,7 +21,7 @@ class viewBuildings extends Component {
     try {
       const {
         data: { data }
-      } = await axios.get('/api/v1/get-victim');
+      } = await axios.get("/api/v1/get-victim");
       if (data && data[0])
         // what if the data were empty, and there wasn't an error?  ==> ahmad instruction
         console.log(data);
@@ -32,7 +32,7 @@ class viewBuildings extends Component {
       //   'Something went wrong! Please try again',
       // );
       notification.error({
-        message: 'Something went wrong! Please try again',
+        message: "Something went wrong! Please try again",
         duration: 2
       });
     }
@@ -43,11 +43,12 @@ class viewBuildings extends Component {
     return (
       <>
         <Navbar />
-        <div className='container' id='view'>
+        <div className="container" id="view">
           <div className={styles.view}>
             <h1 className={styles.heading}>View Cases</h1>
             <p className={styles.content}>
-            Please pick a case you think have the ability  to solve</p>
+              Please pick a case you think have the ability to solve
+            </p>
           </div>
           <div className={styles.table}>
             <Suspense fallback={<Loading />}>

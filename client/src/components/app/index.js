@@ -1,14 +1,14 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import 'antd/dist/antd.css';
-import './style.css';
+import "antd/dist/antd.css";
+import "./style.css";
 
-import { Footer } from 'components/utils';
-import About from 'components/pages/AboutUs';
-import Error from 'components/pages/Error';
-import viewBuildings from 'components/pages/ViewVic';
-import Home from 'components/pages/Home';
+import { Footer } from "components/utils";
+import About from "components/pages/AboutUs";
+import Error from "components/pages/Error";
+import viewBuildings from "components/pages/ViewVic";
+import Home from "components/pages/Home";
 
 function App() {
   return (

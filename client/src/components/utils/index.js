@@ -1,7 +1,5 @@
-import Loading from './Loading';
-import Navbar from './Navbar';
-import Footer from './Footer';
+import Loading from "./Loading";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
-
-export { Loading, Footer, Navbar};
-
+export { Loading, Footer, Navbar };

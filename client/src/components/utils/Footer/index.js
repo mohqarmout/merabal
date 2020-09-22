@@ -1,9 +1,9 @@
-import React from 'react';
-import { Icon } from 'antd';
+import React from "react";
+import { Icon } from "antd";
 
-import Subscribe from './Subscribe';
+import Subscribe from "./Subscribe";
 
-import styles from './footer.module.css';
+import styles from "./footer.module.css";
 
 const Footer = () => {
   return (
@@ -12,11 +12,12 @@ const Footer = () => {
         <section className={styles.section}>
           <h2 className={styles.heading}>About Us</h2>
           <p className={styles.content}>
-          We are an institution looking to help women to speak up for there  problem, trying to deliver a solution for the digital problem.
+            We are an institution looking to help women to speak up for there
+            problem, trying to deliver a solution for the digital problem.
           </p>
           <Icon type="global" className={styles.icon} />
           <a href="http://www.farnearer.org/" className={styles.link}>
-          Merabal.org
+            Merabal.org
           </a>
         </section>
         <section className={styles.section}>

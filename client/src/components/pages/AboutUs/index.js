@@ -1,14 +1,14 @@
-import React from 'react';
-import { Navbar } from 'components/utils';
+import React from "react";
+import { Navbar } from "components/utils";
 
-import styles from './about.module.css';
+import styles from "./about.module.css";
 
 const About = () => {
   return (
     <>
       <Navbar />
-      <div className='container'>
-        <h1 className={styles.heading} id='about'>
+      <div className="container">
+        <h1 className={styles.heading} id="about">
           About Us
         </h1>
         <div className={styles.content}>

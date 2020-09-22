@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { Table, Tag } from 'antd';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import { Table, Tag } from "antd";
+import PropTypes from "prop-types";
 
-import styles from './view.module.css';
+import styles from "./view.module.css";
 
 class TableInfo extends Component {
   state = { filteredInfo: {}, scrollVisable: false };
 
   componentDidMount() {
-    window.addEventListener('resize', this.handleScroll);
+    window.addEventListener("resize", this.handleScroll);
   }
 
   handleScroll = () => {
@@ -17,7 +17,7 @@ class TableInfo extends Component {
 
   handleChange = (pagination, filters) => {
     this.setState({
-      filteredInfo: filters,
+      filteredInfo: filters
     });
   };
 
@@ -25,26 +25,25 @@ class TableInfo extends Component {
     const { filteredInfo = {}, scrollVisable } = this.state;
     const { vicInfo } = this.props;
     const columns = [
-  
       {
-        title: 'Problem statement',
-        dataIndex: 'problem',
-        key: 'problem',
+        title: "Problem statement",
+        dataIndex: "problem",
+        key: "problem"
       },
       {
-        title: 'ID number',
-        dataIndex: 'idNumber',
-        key: 'idNumber',
+        title: "ID number",
+        dataIndex: "idNumber",
+        key: "idNumber"
       },
       {
-        title: 'Age',
-        dataIndex: 'age',
-        key: 'age',
+        title: "Age",
+        dataIndex: "age",
+        key: "age"
       },
       {
-        title: 'Checked',
-        dataIndex: 'checked',
-        key: 'checked',
+        title: "Checked",
+        dataIndex: "checked",
+        key: "checked",
         render: record =>
           record ? (
             <Tag className={styles.approved__tag} color="green">
@@ -54,8 +53,8 @@ class TableInfo extends Component {
             <Tag className={styles.approved__tag} color="red">
               Pending
             </Tag>
-          ),
-      },
+          )
+      }
     ];
     return (
       <Table
@@ -70,6 +69,6 @@ class TableInfo extends Component {
 }
 
 TableInfo.propTypes = {
-  buildingInfo: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.any)).isRequired,
+  buildingInfo: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.any)).isRequired
 };
 export default TableInfo;

@@ -1,9 +1,9 @@
-import React from 'react';
-import { Form as FormAnt, Button, Input, Select } from 'antd';
+import React from "react";
+import { Form as FormAnt, Button, Input, Select } from "antd";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import styles from './form.module.css';
+import styles from "./form.module.css";
 const { Option } = Select;
 
 const { TextArea } = Input;
@@ -36,74 +36,74 @@ const SecondStep = props => {
   };
 
   return (
-    <FormAnt onSubmit={validateInput} layout='vertical'>
-      <FormAnt.Item label='ID Number'>
-        {getFieldDecorator('idNumber', {
+    <FormAnt onSubmit={validateInput} layout="vertical">
+      <FormAnt.Item label="ID Number">
+        {getFieldDecorator("idNumber", {
           rules: [
             {
               required: true,
-              message: 'Please Enter a correct ID '
+              message: "Please Enter a correct ID "
             }
           ],
           initialValue: idNumber
-        })(<Input placeholder='Please Enter at least 10 digits' />)}
+        })(<Input placeholder="Please Enter at least 10 digits" />)}
       </FormAnt.Item>
 
-      <FormAnt.Item label='Email'>
-        {getFieldDecorator('email', {
+      <FormAnt.Item label="Email">
+        {getFieldDecorator("email", {
           rules: [
             {
               required: true,
-              message: 'Please Enter a coorect Email',
-              type: 'email'
+              message: "Please Enter a coorect Email",
+              type: "email"
             }
           ],
           initialValue: email
-        })(<Input placeholder='Please Enter your Email' />)}
+        })(<Input placeholder="Please Enter your Email" />)}
       </FormAnt.Item>
 
-      <FormAnt.Item className={styles.item} label='problem statement'>
-        {getFieldDecorator('problem', {
+      <FormAnt.Item className={styles.item} label="problem statement">
+        {getFieldDecorator("problem", {
           rules: [
             {
               required: true,
-              message: 'Give us an idea how you got blackmailed'
+              message: "Give us an idea how you got blackmailed"
             }
           ],
           initialValue: problem
         })(
           <TextArea
             rows={3}
-            placeholder='tell us about your stuation to help you'
+            placeholder="tell us about your stuation to help you"
           />
         )}
       </FormAnt.Item>
-      <FormAnt.Item label='Do have an idea about the scammer' hasFeedback>
-        {getFieldDecorator('ideaAboutScammer', {
-          rules: [{ required: true, message: 'Please select the an Item' }],
+      <FormAnt.Item label="Do have an idea about the scammer" hasFeedback>
+        {getFieldDecorator("ideaAboutScammer", {
+          rules: [{ required: true, message: "Please select the an Item" }],
           initialValue: ideaAboutScammer
         })(
-          <Select placeholder='What was the building used for'>
-            <Option value='yes and I am suer'>yes and I am suer</Option>
-            <Option value='maybe, I might know'>maybe, I might know</Option>
-            <Option value='N/A'>I don&apos;t know</Option>
+          <Select placeholder="What was the building used for">
+            <Option value="yes and I am suer">yes and I am suer</Option>
+            <Option value="maybe, I might know">maybe, I might know</Option>
+            <Option value="N/A">I don&apos;t know</Option>
           </Select>
         )}
       </FormAnt.Item>
 
       <FormAnt.Item>
         <Button
-          className={`prevButton  ${styles.white} ${styles['ml-0']}`}
+          className={`prevButton  ${styles.white} ${styles["ml-0"]}`}
           onClick={storeValues}
-          size='large'
+          size="large"
         >
           Previous
         </Button>
         <Button
-          type='primary'
-          size='large'
+          type="primary"
+          size="large"
           onClick={validateInput}
-          className='nextButton'
+          className="nextButton"
         >
           Next
         </Button>
@@ -120,6 +120,6 @@ SecondStep.propTypes = {
   stepTwoValues: PropTypes.objectOf(PropTypes.any).isRequired
 };
 
-const WrappedStep = FormAnt.create({ name: 'validate_other' })(SecondStep);
+const WrappedStep = FormAnt.create({ name: "validate_other" })(SecondStep);
 
 export default WrappedStep;

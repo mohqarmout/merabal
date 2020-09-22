@@ -1,15 +1,14 @@
-import React, { Component, lazy, Suspense } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component, lazy, Suspense } from "react";
+import PropTypes from "prop-types";
 
-import Header from './Header';
-import { Navbar, Loading } from '../../utils';
+import Header from "./Header";
+import { Navbar, Loading } from "../../utils";
 
-const ReportScamming = lazy(() => import('./reportScamming'));
+const ReportScamming = lazy(() => import("./reportScamming"));
 
 class Home extends Component {
-  redirectToView = () => {
-    const { history } = this.props; // why do i need to check for history
-    if (history) history.push('/get-victim'); // run after axios call
+  redirectToView = ({ history }) => {
+    history?.push("/get-victim");
   };
 
   render() {

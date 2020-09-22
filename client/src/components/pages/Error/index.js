@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from 'antd';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "antd";
 
-import errorImg from 'assets/robot-error-codes.png';
-import styles from './error.module.css';
+import errorImg from "assets/robot-error-codes.png";
+import styles from "./error.module.css";
 
 const PageNotFound = () => {
   return (

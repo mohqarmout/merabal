@@ -1,8 +1,8 @@
-import React from 'react';
-import { Form as FormAnt, Radio, Select, Input, Button } from 'antd';
-import PropTypes, { number } from 'prop-types';
+import React from "react";
+import { Form as FormAnt, Radio, Select, Input, Button } from "antd";
+import PropTypes, { number } from "prop-types";
 
-import styles from './form.module.css';
+import styles from "./form.module.css";
 
 const { Option } = Select;
 
@@ -34,60 +34,60 @@ class FirstStep extends React.Component {
     } = this.props;
 
     return (
-      <FormAnt onSubmit={this.validateInput} layout='vertical'>
-        <FormAnt.Item label='Name'>
-          {getFieldDecorator('victimName', {
+      <FormAnt onSubmit={this.validateInput} layout="vertical">
+        <FormAnt.Item label="Name">
+          {getFieldDecorator("victimName", {
             rules: [
               {
-                type: 'string',
+                type: "string",
                 required: true,
-                message: 'Please Enter your name'
+                message: "Please Enter your name"
               }
             ],
             initialValue: victimName
           })(
-            <Input placeholder='Enter your name to verify your information' />
+            <Input placeholder="Enter your name to verify your information" />
           )}
         </FormAnt.Item>
 
-        <FormAnt.Item label='Your Age'>
-          {getFieldDecorator('age', {
+        <FormAnt.Item label="Your Age">
+          {getFieldDecorator("age", {
             rules: [
               {
                 required: true,
-                message: 'age is a required filed'
+                message: "age is a required filed"
               }
             ],
             initialValue: age
-          })(<Input placeholder='Must be older than 16' />)}
+          })(<Input placeholder="Must be older than 16" />)}
         </FormAnt.Item>
 
         <FormAnt.Item
           label={
             <span>
               Would provide us your address
-              <span style={{ color: '#888' }}> (Optional)</span>
+              <span style={{ color: "#888" }}> (Optional)</span>
             </span>
           }
         >
-          {getFieldDecorator('address', {
+          {getFieldDecorator("address", {
             initialValue: address
-          })(<Input placeholder='It will be helpful to send you our staff' />)}
+          })(<Input placeholder="It will be helpful to send you our staff" />)}
         </FormAnt.Item>
 
-        <FormAnt.Item className={styles.item} label='Enter your phone number'>
-          {getFieldDecorator('phoneNumber', {
+        <FormAnt.Item className={styles.item} label="Enter your phone number">
+          {getFieldDecorator("phoneNumber", {
             rules: [
               {
                 required: true
               }
             ],
             initialValue: phoneNumber
-          })(<Input placeholder='At least ten digits pheo phone number' />)}
+          })(<Input placeholder="At least ten digits pheo phone number" />)}
         </FormAnt.Item>
 
-        <FormAnt.Item className='next'>
-          <Button type='primary' htmlType='submit' size='large'>
+        <FormAnt.Item className="next">
+          <Button type="primary" htmlType="submit" size="large">
             Next
           </Button>
         </FormAnt.Item>
@@ -106,6 +106,6 @@ FirstStep.propTypes = {
   stepOneValues: PropTypes.objectOf(PropTypes.any).isRequired
 };
 
-const WrappedStep = FormAnt.create({ name: 'validate_other' })(FirstStep);
+const WrappedStep = FormAnt.create({ name: "validate_other" })(FirstStep);
 
 export default WrappedStep;

@@ -1,34 +1,34 @@
-import React, { Component } from 'react';
-import { Steps, notification } from 'antd';
-import PropTypes from 'prop-types';
-import axios from 'axios';
+import React, { Component } from "react";
+import { Steps, notification } from "antd";
+import PropTypes from "prop-types";
+import axios from "axios";
 
-import FirstStep from './FirstStep';
-import SecondStep from './SecondStep';
-import ThirdStep from './ThirdStep';
-import styles from './form.module.css';
+import FirstStep from "./FirstStep";
+import SecondStep from "./SecondStep";
+import ThirdStep from "./ThirdStep";
+import styles from "./form.module.css";
 
 const { Step } = Steps;
 
-const steps = ['Empty Building', 'Extra Information', 'Personal Information'];
+const steps = ["Empty Building", "Extra Information", "Personal Information"];
 
 class Form extends Component {
   state = {
     current: 0,
     stepOneValues: {
-      victimName: '',
-      age: '',
-      address: '',
-      phoneNumber: ''
+      victimName: "",
+      age: "",
+      address: "",
+      phoneNumber: ""
     },
     stepTwoValues: {
-      email: '',
-      idNumber: '',
-      problem: '',
-      ideaAboutScammer: ''
+      email: "",
+      idNumber: "",
+      problem: "",
+      ideaAboutScammer: ""
     },
     stepThreeValues: {
-      extraInfo: '',
+      extraInfo: "",
       receiveNotifications: false,
       shareData: false
     },
@@ -111,37 +111,37 @@ class Form extends Component {
     };
 
     Object.keys(data).forEach(key => {
-      if (typeof data[key] === 'string') data[key] = data[key].trim();
-      if (data[key] === '') delete data[key];
+      if (typeof data[key] === "string") data[key] = data[key].trim();
+      if (data[key] === "") delete data[key];
     });
 
-    formData.append('data', JSON.stringify(data));
+    formData.append("data", JSON.stringify(data));
 
-    const config = { headers: { 'Content-Type': 'multipart/form-data' } };
+    const config = { headers: { "Content-Type": "multipart/form-data" } };
 
     try {
       const { data } = await axios.post(
-        '/api/v1/enter-victim',
+        "/api/v1/enter-victim",
         formData,
         config
       );
       if (data.statusCode === 201) {
         openNotificationWithIcon(
-          'success',
-          'Great !! You added the empty building successfully'
+          "success",
+          "Great !! You added the empty building successfully"
         );
 
         redirectToView();
       } else if (data.statusCode === 400) {
-        openNotificationWithIcon('error', data.error);
+        openNotificationWithIcon("error", data.error);
       } else if (data.statusCode === 409) {
-        openNotificationWithIcon('info', 'The building is already exist');
+        openNotificationWithIcon("info", "The building is already exist");
       }
     } catch (err) {
       this.setState({ loading: false });
       openNotificationWithIcon(
-        'error',
-        'Something went wrong! Please try again'
+        "error",
+        "Something went wrong! Please try again"
       );
     }
   };
@@ -212,7 +212,7 @@ class Form extends Component {
             <Step key={item} />
           ))}
         </Steps>
-        <div className='steps-content'>{this.getStep()}</div>
+        <div className="steps-content">{this.getStep()}</div>
       </div>
     );
   }
