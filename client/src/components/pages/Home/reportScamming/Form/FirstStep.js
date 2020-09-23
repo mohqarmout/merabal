@@ -1,12 +1,8 @@
 import React from 'react';
-import { Form as FormAnt, Radio, Select, Input, Button } from 'antd';
-import PropTypes, { number } from 'prop-types';
+import { Form as FormAnt, Input, Button } from 'antd';
+import PropTypes from 'prop-types';
 
 import styles from './form.module.css';
-
-const { Option } = Select;
-
-const { TextArea } = Input;
 
 class FirstStep extends React.Component {
   validateInput = e => {
@@ -49,13 +45,19 @@ class FirstStep extends React.Component {
             <Input placeholder="Enter your name to verify your information" />,
           )}
         </FormAnt.Item>
-
         <FormAnt.Item label="Your Age">
           {getFieldDecorator('age', {
             rules: [
               {
                 required: true,
                 message: 'age is a required filed',
+              },
+              {
+                validator: (_, value) => {
+                  return Number(value) >= 16
+                    ? Promise.resolve()
+                    : Promise.reject('Should Be older than 16');
+                },
               },
             ],
             initialValue: age,
@@ -80,6 +82,14 @@ class FirstStep extends React.Component {
             rules: [
               {
                 required: true,
+                message: 'phone number is required field',
+              },
+              {
+                message: 'Please enter a valid phone number',
+                pattern: new RegExp(
+                  '^[+]?[(]?[0-9]{3}[)]?[-s.]?[0-9]{3}[-s.]?[0-9]{4,6}$',
+                  'g',
+                ),
               },
             ],
             initialValue: phoneNumber,
@@ -98,9 +108,6 @@ class FirstStep extends React.Component {
 
 FirstStep.propTypes = {
   form: PropTypes.objectOf(PropTypes.any).isRequired,
-  location: PropTypes.string.isRequired,
-  city: PropTypes.string.isRequired,
-  onCityChange: PropTypes.func.isRequired,
   submittedValues: PropTypes.func.isRequired,
   handleNext: PropTypes.func.isRequired,
   stepOneValues: PropTypes.objectOf(PropTypes.any).isRequired,
