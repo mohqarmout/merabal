@@ -15,14 +15,14 @@ class TableInfo extends Component {
     this.setState({ scrollVisable: window.innerWidth < 700 });
   };
 
-  handleChange = (pagination, filters) => {
+  handleChange = (_, filters) => {
     this.setState({
       filteredInfo: filters,
     });
   };
 
   render() {
-    const { filteredInfo = {}, scrollVisable } = this.state;
+    const { scrollVisable } = this.state;
     const { vicInfo } = this.props;
     const columns = [
       {

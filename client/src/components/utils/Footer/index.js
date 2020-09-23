@@ -16,7 +16,7 @@ const Footer = () => {
             problem, trying to deliver a solution for the digital problem.
           </p>
           <Icon type="global" className={styles.icon} />
-          <a href="http://www.farnearer.org/" className={styles.link}>
+          <a href="_" className={styles.link}>
             Merabal.org
           </a>
         </section>
