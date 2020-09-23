@@ -84,8 +84,8 @@ const ThirdStep = props => {
             valuePropName: 'checked',
           })(
             <Checkbox required>
-              I consent to share Infroamtion with Magic touch team and their
-              local community partners
+              I consent to share Infroamtion with MERABAL team and their local
+              community partners
             </Checkbox>,
           )}
         </FormAnt.Item>
