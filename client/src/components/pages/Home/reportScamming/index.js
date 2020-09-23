@@ -25,7 +25,7 @@ class ReportScamming extends Component {
             <div className={styles['report-img-div']}>
               <img
                 className={styles['form-img']}
-                alt="form-photo"
+                alt="form"
                 src="https://media.gettyimages.com/photos/all-women-should-take-part-we-are-all-part-of-this-picture-id1074842602?s=2048x2048"
               ></img>
             </div>
