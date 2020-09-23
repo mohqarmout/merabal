@@ -10,7 +10,11 @@ import styles from './form.module.css';
 
 const { Step } = Steps;
 
-const steps = ['Empty Building', 'Extra Information', 'Personal Information'];
+const steps = [
+  'Personal Information',
+  'Extra Information',
+  'Additional information',
+];
 
 class Form extends Component {
   state = {
@@ -219,12 +223,7 @@ class Form extends Component {
 }
 
 Form.propTypes = {
-  city: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  onCityChange: PropTypes.func.isRequired,
   redirectToView: PropTypes.func.isRequired,
-  longitude: PropTypes.number.isRequired,
-  latitude: PropTypes.number.isRequired,
 };
 
 export default Form;
