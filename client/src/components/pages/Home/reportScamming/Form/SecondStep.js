@@ -42,6 +42,10 @@ const SecondStep = props => {
           rules: [
             {
               required: true,
+              message: 'Please Enter your ID ',
+            },
+            {
+              pattern: new RegExp('^[0-9]{13}$', 'g'),
               message: 'Please Enter a correct ID ',
             },
           ],
