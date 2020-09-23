@@ -13,7 +13,7 @@ const Footer = () => {
           <h2 className={styles.heading}>About Us</h2>
           <p className={styles.content}>
             We are an institution looking to help women to speak up for there
-            problem, trying to deliver a solution for the digital problem.
+            the problem, trying to deliver a solution for the digital problem.
           </p>
           <Icon type="global" className={styles.icon} />
           <a href="_" className={styles.link}>
