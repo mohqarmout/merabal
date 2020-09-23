@@ -69,6 +69,6 @@ class TableInfo extends Component {
 }
 
 TableInfo.propTypes = {
-  buildingInfo: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.any)).isRequired,
+  vicInfo: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.any)).isRequired,
 };
 export default TableInfo;
