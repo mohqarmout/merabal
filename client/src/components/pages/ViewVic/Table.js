@@ -15,17 +15,16 @@ class TableInfo extends Component {
     this.setState({ scrollVisable: window.innerWidth < 700 });
   };
 
-  handleChange = (pagination, filters) => {
+  handleChange = (_, filters) => {
     this.setState({
       filteredInfo: filters,
     });
   };
 
   render() {
-    const { filteredInfo = {}, scrollVisable } = this.state;
+    const { scrollVisable } = this.state;
     const { vicInfo } = this.props;
     const columns = [
-  
       {
         title: 'Problem statement',
         dataIndex: 'problem',
@@ -70,6 +69,6 @@ class TableInfo extends Component {
 }
 
 TableInfo.propTypes = {
-  buildingInfo: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.any)).isRequired,
+  vicInfo: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.any)).isRequired,
 };
 export default TableInfo;

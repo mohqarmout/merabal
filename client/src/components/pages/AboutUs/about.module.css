@@ -3,7 +3,6 @@
   font-size: 3rem;
   font-weight: 700;
   margin-top: 3rem;
-
 }
 
 .content {
@@ -14,7 +13,6 @@
 .description {
   line-height: 2rem;
   font-size: 1.2rem;
-
 }
 
 @media (max-width: 600px) {

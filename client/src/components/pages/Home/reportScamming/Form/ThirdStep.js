@@ -12,7 +12,7 @@ const ThirdStep = props => {
     stepThreeValues: { extraInfo, shareData },
     form: { getFieldDecorator, validateFields, getFieldsValue },
     enterLoading,
-    loading
+    loading,
   } = props;
 
   const handleSubmit = e => {
@@ -20,7 +20,7 @@ const ThirdStep = props => {
     const openNotificationWithIcon = (type, message) => {
       notification[type]({
         message,
-        duration: 3
+        duration: 3,
       });
     };
 
@@ -29,7 +29,7 @@ const ThirdStep = props => {
         if (values.shareData === false)
           openNotificationWithIcon(
             'info',
-            'Please agree to share this data to continue'
+            'Please agree to share this data to continue',
           );
         else {
           enterLoading();
@@ -46,7 +46,7 @@ const ThirdStep = props => {
   };
 
   return (
-    <FormAnt onSubmit={handleSubmit} layout='vertical'>
+    <FormAnt onSubmit={handleSubmit} layout="vertical">
       <>
         <FormAnt.Item
           className={styles.item}
@@ -60,15 +60,15 @@ const ThirdStep = props => {
           {getFieldDecorator('extraInfo', {
             rules: [
               {
-                required: false
-              }
+                required: false,
+              },
             ],
-            initialValue: extraInfo || undefined
+            initialValue: extraInfo || undefined,
           })(
             <TextArea
               rows={3}
-              placeholder='extra information you think it will be helpful'
-            />
+              placeholder="extra information you think it will be helpful"
+            />,
           )}
         </FormAnt.Item>
 
@@ -77,34 +77,34 @@ const ThirdStep = props => {
             rules: [
               {
                 required: true,
-                message: 'You must agree to share your data with us'
-              }
+                message: 'You must agree to share your data with us',
+              },
             ],
             initialValue: shareData,
-            valuePropName: 'checked'
+            valuePropName: 'checked',
           })(
             <Checkbox required>
-              I consent to share Infroamtion with Magic touch team and their
-              local community partners
-            </Checkbox>
+              I consent to share Infroamtion with MERABAL team and their local
+              community partners
+            </Checkbox>,
           )}
         </FormAnt.Item>
 
         <FormAnt.Item>
           <Button
-            htmlType='submit'
+            htmlType="submit"
             className={`prevButton ${styles.white} ${styles['ml-0']}`}
             onClick={storeValues}
-            size='large'
+            size="large"
           >
             Previous
           </Button>
           <Button
-            type='primary'
-            htmlType='submit'
+            type="primary"
+            htmlType="submit"
             onClick={handleSubmit}
-            className='nextButton'
-            size='large'
+            className="nextButton"
+            size="large"
             loading={loading}
           >
             Submit
@@ -122,7 +122,7 @@ ThirdStep.propTypes = {
   handleConfirm: PropTypes.func.isRequired,
   enterLoading: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
-  stepThreeValues: PropTypes.objectOf(PropTypes.any).isRequired
+  stepThreeValues: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 const WrappedStep = FormAnt.create({ name: 'validate_other' })(ThirdStep);

@@ -20,7 +20,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint src/",
     "lint-fix": "eslint src/ --fix",
-    "analyze": "source-map-explorer build/**/*.{js,css}"
+    "analyze": "source-map-explorer build/**/*.{js,css}",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\""
   },
   "eslintConfig": {
     "extends": "react-app"

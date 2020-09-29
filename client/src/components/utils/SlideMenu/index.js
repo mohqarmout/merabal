@@ -33,7 +33,7 @@ const SlideMenu = ({ showHideMenu }) => (
       <ul className={styles.menu__list}>
         <li className={styles.list__item}>
           <Link to="/#Report-scame" className={styles.nav__link}>
-          Report Scame
+            Report Scame
           </Link>
         </li>
         <li className={styles.list__item}>
@@ -43,7 +43,7 @@ const SlideMenu = ({ showHideMenu }) => (
         </li>
         <li className={styles.list__item}>
           <Link to="/get-victim" className={styles.nav__link}>
-          View Cases
+            View Cases
           </Link>
         </li>
       </ul>

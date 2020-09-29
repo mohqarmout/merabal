@@ -8,32 +8,21 @@ import styles from './view.module.css';
 
 const TableInfo = lazy(() => import('./Table'));
 
-class viewBuildings extends Component {
+class ViewVictims extends Component {
   state = { vicInfo: [] };
 
   async componentDidMount() {
-    // const openNotificationWithIcon = (type, message) => {
-    //   notification[type]({
-    //     message,
-    //     duration: 2,
-    //   });
-    // };
     try {
       const {
-        data: { data }
+        data: { data },
       } = await axios.get('/api/v1/get-victim');
-      if (data && data[0])
-        // what if the data were empty, and there wasn't an error?  ==> ahmad instruction
-        console.log(data);
-      this.setState({ vicInfo: data });
+      if (data && data[0]) {
+        this.setState({ vicInfo: data });
+      }
     } catch (err) {
-      // openNotificationWithIcon(
-      //   'error',
-      //   'Something went wrong! Please try again',
-      // );
       notification.error({
         message: 'Something went wrong! Please try again',
-        duration: 2
+        duration: 2,
       });
     }
   }
@@ -43,11 +32,12 @@ class viewBuildings extends Component {
     return (
       <>
         <Navbar />
-        <div className='container' id='view'>
+        <div className="container" id="view">
           <div className={styles.view}>
             <h1 className={styles.heading}>View Cases</h1>
             <p className={styles.content}>
-            Please pick a case you think have the ability  to solve</p>
+              Please pick a case you think have the ability to solve
+            </p>
           </div>
           <div className={styles.table}>
             <Suspense fallback={<Loading />}>
@@ -60,4 +50,4 @@ class viewBuildings extends Component {
   }
 }
 
-export default viewBuildings;
+export default ViewVictims;

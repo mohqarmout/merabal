@@ -4,7 +4,7 @@ import { Spin, Icon } from 'antd';
 
 import styles from './loading.module.css';
 
-const Loading = ({ className = '' }) => {
+const Loading = ({ className }) => {
   const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
   return (
     <div className={`${styles.loader} ${className}`}>

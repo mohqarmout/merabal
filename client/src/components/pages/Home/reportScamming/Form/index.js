@@ -10,7 +10,11 @@ import styles from './form.module.css';
 
 const { Step } = Steps;
 
-const steps = ['Empty Building', 'Extra Information', 'Personal Information'];
+const steps = [
+  'Personal Information',
+  'Extra Information',
+  'Additional information',
+];
 
 class Form extends Component {
   state = {
@@ -19,24 +23,24 @@ class Form extends Component {
       victimName: '',
       age: '',
       address: '',
-      phoneNumber: ''
+      phoneNumber: '',
     },
     stepTwoValues: {
       email: '',
       idNumber: '',
       problem: '',
-      ideaAboutScammer: ''
+      ideaAboutScammer: '',
     },
     stepThreeValues: {
       extraInfo: '',
       receiveNotifications: false,
-      shareData: false
+      shareData: false,
     },
     loading: false,
-    iconLoading: false
+    iconLoading: false,
   };
 
-  // for the therd step
+  //? for the therd step
   enterLoading = () => {
     this.setState({ loading: true });
   };
@@ -46,8 +50,8 @@ class Form extends Component {
     this.setState({
       stepOneValues: {
         ...stepOneValues,
-        ...values
-      }
+        ...values,
+      },
     });
   };
 
@@ -56,8 +60,8 @@ class Form extends Component {
     this.setState({
       stepTwoValues: {
         ...stepTwoValues,
-        ...values
-      }
+        ...values,
+      },
     });
   };
 
@@ -66,40 +70,40 @@ class Form extends Component {
     this.setState({
       stepThreeValues: {
         ...stepThreeValues,
-        ...values
-      }
+        ...values,
+      },
     });
   };
 
-  // ThirdStep
+  //? ThirdStep
   handleConfirm = values => {
     const { stepThreeValues } = this.state;
     this.setState(
       {
         stepThreeValues: {
           ...stepThreeValues,
-          ...values
-        }
+          ...values,
+        },
       },
-      () => this.sendData()
+      () => this.sendData(),
     );
   };
 
-  // handle submit
+  //? handle submit
   sendData = async () => {
-    // antD
+    //? antD
     const { redirectToView } = this.props;
     const openNotificationWithIcon = (type, message) => {
       notification[type]({
         message,
-        duration: 3
+        duration: 3,
       });
     };
 
     const {
       stepOneValues,
       stepTwoValues,
-      stepThreeValues: { extraInfo }
+      stepThreeValues: { extraInfo },
     } = this.state;
 
     const formData = new FormData();
@@ -107,7 +111,7 @@ class Form extends Component {
     const data = {
       ...stepOneValues,
       ...stepTwoValues,
-      extraInfo
+      extraInfo,
     };
 
     Object.keys(data).forEach(key => {
@@ -123,12 +127,12 @@ class Form extends Component {
       const { data } = await axios.post(
         '/api/v1/enter-victim',
         formData,
-        config
+        config,
       );
       if (data.statusCode === 201) {
         openNotificationWithIcon(
           'success',
-          'Great !! You added the empty building successfully'
+          'Great !! You added the empty building successfully',
         );
 
         redirectToView();
@@ -141,7 +145,7 @@ class Form extends Component {
       this.setState({ loading: false });
       openNotificationWithIcon(
         'error',
-        'Something went wrong! Please try again'
+        'Something went wrong! Please try again',
       );
     }
   };
@@ -152,7 +156,7 @@ class Form extends Component {
       stepTwoValues,
       stepThreeValues,
       loading,
-      current
+      current,
     } = this.state;
 
     switch (current) {
@@ -189,14 +193,14 @@ class Form extends Component {
     }
   };
 
-  // antd
+  //? antd
   next() {
     let { current } = { ...this.state };
     current += 1;
     this.setState({ current });
   }
 
-  // antd
+  //? antd
   prev() {
     let { current } = { ...this.state };
     current -= 1;
@@ -212,19 +216,14 @@ class Form extends Component {
             <Step key={item} />
           ))}
         </Steps>
-        <div className='steps-content'>{this.getStep()}</div>
+        <div className="steps-content">{this.getStep()}</div>
       </div>
     );
   }
 }
 
 Form.propTypes = {
-  city: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  onCityChange: PropTypes.func.isRequired,
   redirectToView: PropTypes.func.isRequired,
-  longitude: PropTypes.number.isRequired,
-  latitude: PropTypes.number.isRequired
 };
 
 export default Form;

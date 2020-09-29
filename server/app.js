@@ -2,7 +2,6 @@ const express = require('express');
 const { join } = require('path');
 const compression = require('compression');
 // const morgan = require('morgan');
-const fileupload = require('express-fileupload');
 const helmet = require('helmet');
 
 const controllers = require('./controllers');
@@ -16,7 +15,6 @@ app.set('port', process.env.PORT || 5000);
 app.use(helmet());
 app.use(express.json());
 app.use(compression());
-app.use(fileupload());
 
 // if (process.env.NODE_ENV === 'development') {
 //   app.use(morgan('dev'));

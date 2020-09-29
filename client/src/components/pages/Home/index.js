@@ -8,15 +8,15 @@ const ReportScamming = lazy(() => import('./reportScamming'));
 
 class Home extends Component {
   redirectToView = () => {
-    const { history } = this.props; // why do i need to check for history
-    if (history) history.push('/get-victim'); // run after axios call
+    const { history } = this.props;
+    if (history) history.push('/get-victim');
   };
 
   render() {
     return (
       <>
         <Navbar transparent />
-        <Header onCityChange={this.handleCityChange} />
+        <Header />
         <Suspense fallback={<Loading />}>
           <ReportScamming redirectToView={this.redirectToView} />
         </Suspense>
@@ -26,7 +26,7 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  history: PropTypes.objectOf(PropTypes.any).isRequired
+  history: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default Home;

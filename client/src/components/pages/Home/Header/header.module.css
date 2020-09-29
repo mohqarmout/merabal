@@ -33,7 +33,7 @@
 }
 
 .share-btn:not([disabled]):hover,
-.share-btn:focus ,
+.share-btn:focus,
 .share-btn:active {
   color: var(--main-white);
   background-color: var(--main-color--light);
