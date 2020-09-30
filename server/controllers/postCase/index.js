@@ -3,7 +3,6 @@ const { postCaseVlidation } = require('../../validation/index');
 
 exports.enterVictim = async (req, res, next) => {
   const { data } = req.body;
-  console.log(data);
   try {
     const newCase = await postCaseVlidation.validate(data, {
       abortEarly: false,
@@ -26,6 +25,7 @@ exports.enterVictim = async (req, res, next) => {
       });
     }
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
     if (error.name === 'ValidationError') {
       res.status(400).send({ statusCode: 400, error: error.errors });

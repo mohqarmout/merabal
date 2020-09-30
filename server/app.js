@@ -21,7 +21,6 @@ app.use(compression());
 // }
 
 app.use(express.static(join(__dirname, '..', 'client', 'build')));
-app.use(express.static(join(__dirname, 'uploads')));
 
 app.use('/api/v1/', controllers);
 
