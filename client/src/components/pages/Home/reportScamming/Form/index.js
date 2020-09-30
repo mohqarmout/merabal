@@ -106,47 +106,39 @@ class Form extends Component {
       stepThreeValues: { extraInfo },
     } = this.state;
 
-    const formData = new FormData();
-
-    const data = {
+    const formData = {
       ...stepOneValues,
       ...stepTwoValues,
       extraInfo,
     };
-
-    Object.keys(data).forEach(key => {
-      if (typeof data[key] === 'string') data[key] = data[key].trim();
-      if (data[key] === '') delete data[key];
+    Object.keys(formData).forEach(key => {
+      if (typeof formData[key] === 'string')
+        formData[key] = formData[key].trim();
+      if (formData[key] === '') delete formData[key];
     });
 
-    formData.append('data', JSON.stringify(data));
-
-    const config = { headers: { 'Content-Type': 'multipart/form-data' } };
-
     try {
-      const { data } = await axios.post(
-        '/api/v1/enter-victim',
-        formData,
-        config,
-      );
+      const { data } = await axios.post('/api/v1/enter-victim', formData);
       if (data.statusCode === 201) {
-        openNotificationWithIcon(
-          'success',
-          'Great !! You added the empty building successfully',
-        );
-
+        openNotificationWithIcon('success', 'Great !! We have got you covered');
         redirectToView();
-      } else if (data.statusCode === 400) {
-        openNotificationWithIcon('error', data.error);
-      } else if (data.statusCode === 409) {
-        openNotificationWithIcon('info', 'The building is already exist');
       }
-    } catch (err) {
+    } catch ({ response }) {
       this.setState({ loading: false });
-      openNotificationWithIcon(
-        'error',
-        'Something went wrong! Please try again',
-      );
+      switch (response.status) {
+        case 400:
+          openNotificationWithIcon('error', response.data);
+          break;
+        case 409:
+          openNotificationWithIcon('info', 'This info already exist');
+          break;
+        default:
+          openNotificationWithIcon(
+            'error',
+            'Something went wrong! Please try again',
+          );
+          break;
+      }
     }
   };
 
