@@ -40,13 +40,14 @@
 .list__item {
   display: block;
   margin: 15rem;
+  width: 39rem;
 }
 
 .list__item:hover {
   color: var(--main-color--dark);
 }
 
-.list__item > a {
+.list__item>a {
   font-size: 5rem;
   font-weight: bold;
 }
