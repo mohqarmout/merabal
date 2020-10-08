@@ -94,6 +94,7 @@ class Form extends Component {
     //? antD
     const { redirectToView } = this.props;
     const openNotificationWithIcon = (type, message) => {
+      console.log(type, message);
       notification[type]({
         message,
         duration: 3,
@@ -125,20 +126,13 @@ class Form extends Component {
       }
     } catch ({ response }) {
       this.setState({ loading: false });
-      switch (response.status) {
-        case 400:
-          openNotificationWithIcon('error', response.data);
-          break;
-        case 409:
-          openNotificationWithIcon('info', 'This info already exist');
-          break;
-        default:
-          openNotificationWithIcon(
+
+      response.status == 409
+        ? openNotificationWithIcon('info', 'This info already exist')
+        : openNotificationWithIcon(
             'error',
             'Something went wrong! Please try again',
           );
-          break;
-      }
     }
   };
 

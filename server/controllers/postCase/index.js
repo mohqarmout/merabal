@@ -2,7 +2,7 @@ const { getCases, postCase } = require('../../models/queries/cases');
 const { postCaseVlidation } = require('../../validation/index');
 
 exports.enterVictim = async (req, res, next) => {
-  const { data } = req.body;
+  const data = req.body;
   try {
     const newCase = await postCaseVlidation.validate(data, {
       abortEarly: false,
