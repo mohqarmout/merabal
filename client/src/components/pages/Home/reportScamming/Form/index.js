@@ -127,7 +127,7 @@ class Form extends Component {
     } catch ({ response }) {
       this.setState({ loading: false });
 
-      response.status == 409
+      response.status === 409
         ? openNotificationWithIcon('info', 'This info already exist')
         : openNotificationWithIcon(
             'error',
