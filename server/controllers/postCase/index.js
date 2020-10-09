@@ -10,8 +10,9 @@ exports.enterVictim = async (req, res, next) => {
 
     const cases = await getCases();
     const idExist = cases.find(victim => {
-      return newCase.idNumber === victim.idNumber;
+      return Number(newCase.idNumber) === victim.idNumber;
     });
+
     if (idExist) {
       res
         .status(409)
@@ -19,7 +20,6 @@ exports.enterVictim = async (req, res, next) => {
     } else {
       await postCase(newCase);
       res.status(201).send({
-        statusCode: 201,
         message: 'victum was added successfully',
         data: newCase,
       });
@@ -28,7 +28,7 @@ exports.enterVictim = async (req, res, next) => {
     // eslint-disable-next-line no-console
     console.log(error);
     if (error.name === 'ValidationError') {
-      res.status(400).send({ statusCode: 400, error: error.errors });
+      res.status(400).send({ error: error.errors });
     } else next(error);
   }
 };

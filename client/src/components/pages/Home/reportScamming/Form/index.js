@@ -112,6 +112,7 @@ class Form extends Component {
       ...stepTwoValues,
       extraInfo,
     };
+
     Object.keys(formData).forEach(key => {
       if (typeof formData[key] === 'string')
         formData[key] = formData[key].trim();
@@ -119,8 +120,8 @@ class Form extends Component {
     });
 
     try {
-      const { data } = await axios.post('/api/v1/enter-victim', formData);
-      if (data.statusCode === 201) {
+      const { status } = await axios.post('/api/v1/enter-victim', formData);
+      if (status === 201) {
         openNotificationWithIcon('success', 'Great !! We have got you covered');
         redirectToView();
       }
